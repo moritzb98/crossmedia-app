@@ -15,7 +15,7 @@ const { PushNotifications } = Plugins;
 })
 export class PushService {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
   
   public initPush() {
     if (Capacitor.platform !== 'web') {

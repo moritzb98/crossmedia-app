@@ -4,7 +4,8 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { PushService } from './services/push.service'
+import { PushService } from './services/push.service';
+import { GeolocationService } from './services/geolocation.service';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private pushService: PushService
+    private pushService: PushService,
+    private geolocationService: GeolocationService,
   ) {
     this.initializeApp();
   }
@@ -28,6 +30,7 @@ export class AppComponent {
 
       // Trigger Push Service
       this.pushService.initPush();
+
     });
   }
 }
