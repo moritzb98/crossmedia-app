@@ -18,7 +18,7 @@ export class GeolocationService {
       this.geofence = [
         {
           store: 'rewe',
-          lat: 49.222,
+          lat: 49.2264,
           long: 9.149
         },
         {
@@ -30,22 +30,32 @@ export class GeolocationService {
       this.passedGeofence = false;
    }
 
-  getPosition(){
+  initGeolocation(){
     this.geolocation.getCurrentPosition().then((resp) => {
         this.lat =  resp.coords.latitude;
         this.long = resp.coords.longitude;
-        alert(this.lat + ', ' + this.long);
      }).catch((error) => {
         console.log('Error getting location', error);
      });
   
-    let watch = this.geolocation.watchPosition();
+    let watch = this.geolocation.watchPosition({ enableHighAccuracy: true });
     watch.subscribe((data) => {
         // data can be a set of coordinates, or an error (if an error occurred).
         // data.coords.latitude
         // data.coords.longitude
-        console.log(this.lat + ', ' + this.long);
-        this.compareCoords();
+        if ("coords" in data) {
+          console.log('Beobachte...');
+          alert("Beobachte");
+          this.lat =  data.coords.latitude;
+          this.long = data.coords.longitude;
+          if (!this.passedGeofence){
+            this.compareCoords();
+          } else {
+            this.checkFenceleaved();
+          }
+        } else {
+          alert('Wir können gerade nicht auf deinen Standort zugreifen, bitte lade die App neu oder schau in deinen Einstellungen.');
+        }
     });
   }
 
@@ -54,19 +64,36 @@ export class GeolocationService {
     let stop = true;
     this.geofence.forEach(el => {
       num = (this.lat - el.lat) + (this.long - el.long);
-      if (num < 0.1 && stop) {
-          console.log("Geofence betreten: ", el);
+      alert('Store: ' + el.store + ' - ' + num);
+      if (num < 0.0007 && stop) {
+          console.log('Geofence betreten: ', el);
           this.passedGeofence = true;
           this.passedStore = el;
           stop = false;
 
-          // Geofence wurde betreten
-          alert("Geofence betreten!");
-      } else if (num > 0.1 && stop) {
-        console.log("Geofence nicht betreten: ", el);
+          alert('Geofence betreten!');
+      } else if (num > 0.0007 && stop) {
+          console.log('Geofence nicht betreten: ', el);
+          this.passedGeofence = false;
+          this.passedStore = {};
       }
     });
-    
+
   }
-  
+
+  checkFenceleaved() {
+      let num: number;
+      num = (this.lat - this.passedStore.lat) + (this.long - this.passedStore.long);
+      if (num > 0.0007) {
+        this.passedGeofence = false;
+        this.passedStore = {};
+        alert('Geofence verlassen!');
+    }
+  }
+
+  getPosition() {
+    alert('Deine Position: ' + this.lat + ', ' + this.long);
+    return {lat: this.lat, long: this.long};
+  }
+
 }

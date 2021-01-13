@@ -30,7 +30,7 @@ export class AppComponent {
 
       // Trigger Push Service
       this.pushService.initPush();
-
+      this.geolocationService.initGeolocation();
     });
   }
 }
