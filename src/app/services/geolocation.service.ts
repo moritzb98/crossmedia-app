@@ -65,14 +65,14 @@ export class GeolocationService {
     this.geofence.forEach(el => {
       num = (this.lat - el.lat) + (this.long - el.long);
       alert('Store: ' + el.store + ' - ' + num);
-      if (num < 0.0007 && stop) {
+      if (num < 0.001 && stop) {
           console.log('Geofence betreten: ', el);
           this.passedGeofence = true;
           this.passedStore = el;
           stop = false;
 
           alert('Geofence betreten!');
-      } else if (num > 0.0007 && stop) {
+      } else if (num > 0.001 && stop) {
           console.log('Geofence nicht betreten: ', el);
           this.passedGeofence = false;
           this.passedStore = {};
@@ -84,7 +84,7 @@ export class GeolocationService {
   checkFenceleaved() {
       let num: number;
       num = (this.lat - this.passedStore.lat) + (this.long - this.passedStore.long);
-      if (num > 0.0007) {
+      if (num > 0.001) {
         this.passedGeofence = false;
         this.passedStore = {};
         alert('Geofence verlassen!');
