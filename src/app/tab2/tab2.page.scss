@@ -1,0 +1,18 @@
+.flex-container{
+    display:flex;
+    flex-direction: row; /* Standardwert */
+    //padding: 1px;
+}
+.flex-item{
+    margin-top: 15px;
+}
+
+.left{
+    margin-right: 4px;
+    margin-left: 10px;
+}
+
+.right{
+    margin-left: 4px;
+    margin-right: 10px;
+}
