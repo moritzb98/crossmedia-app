@@ -5,6 +5,14 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
+    path: 'supermaerkte',
+    loadChildren: () => import('./supermaerkte/supermaerkte.module').then( m => m.SupermaerktePageModule)
+  },
+  {
+    path: 'einkaufsliste',
+    loadChildren: () => import('./einkaufsliste/einkaufsliste.module').then( m => m.EinkaufslistePageModule)
   }
 ];
 @NgModule({
