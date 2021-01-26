@@ -63,7 +63,8 @@ export class GeolocationService {
     let num: number;
     let stop = true;
     this.geofence.forEach(el => {
-      num = (this.lat - el.lat) + (this.long - el.long);
+      //num = (this.lat - el.lat) + (this.long - el.long);
+      num = (Math.pow(Math.pow(this.lat - el.lat, 2), 0.5) + Math.pow(Math.pow(this.long - el.lng, 2), 0.5));
       alert('Store: ' + el.store + ' - ' + num);
       if (num < 0.001 && stop) {
           console.log('Geofence betreten: ', el);

@@ -1,3 +1,4 @@
+import { SupermaerktePage } from './../supermaerkte/supermaerkte.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
@@ -30,7 +31,11 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/tab2',
     pathMatch: 'full'
-  }
+  },
+  {
+    path: 'supermaerkte',
+    component: SupermaerktePage
+  },
 ];
 
 @NgModule({
