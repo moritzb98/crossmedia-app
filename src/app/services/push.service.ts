@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { mergeMapTo } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
 
 const { PushNotifications } = Plugins;
 
@@ -21,6 +22,7 @@ export class PushService {
 
   private token;
   private message;
+  currentMessage = new BehaviorSubject(null);
 
   constructor(private router: Router, private afMessaging: AngularFireMessaging) { }
   
