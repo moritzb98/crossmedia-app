@@ -6,8 +6,11 @@ import {
   PushNotificationActionPerformed,
   Capacitor,
 } from '@capacitor/core';
-import { AngularFireMessaging } from '@angular/fire/messaging';
+
 import { Router } from '@angular/router';
+
+import { AngularFireMessaging } from '@angular/fire/messaging';
+import { mergeMapTo } from 'rxjs/operators';
 
 const { PushNotifications } = Plugins;
 
@@ -100,11 +103,18 @@ export class PushService {
 
     requestPermission() {
       this.afMessaging.requestPermission
+        .pipe(mergeMapTo(this.afMessaging.tokenChanges))
         .subscribe(
-          () => { 
-            console.log('Permission granted!'); 
-          },
+          (token) => { console.log('Permission granted! Save to the server!', token); },
           (error) => { console.error(error); },  
+        );
+    }
+
+    deleteToken() {
+      this.afMessaging.getToken
+        .pipe(mergeMapTo(token => this.afMessaging.deleteToken(token)))
+        .subscribe(
+          (token) => { console.log('Token deleted!'); },
         );
     }
 }
