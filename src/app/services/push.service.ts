@@ -6,6 +6,7 @@ import {
   PushNotificationActionPerformed,
   Capacitor,
 } from '@capacitor/core';
+import { AngularFireMessaging } from '@angular/fire/messaging';
 import { Router } from '@angular/router';
 
 const { PushNotifications } = Plugins;
@@ -18,7 +19,7 @@ export class PushService {
   private token;
   private message;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private afMessaging: AngularFireMessaging) { }
   
   public initPush() {
     if (Capacitor.platform !== 'web') {
@@ -44,7 +45,7 @@ export class PushService {
         (token: PushNotificationToken) => {
           //alert('Push registration success, token: ' + token.value);
           console.log(token.value);
-          this.token = token.value;
+          //this.token = token.value;
         }
       );
   
@@ -85,13 +86,25 @@ export class PushService {
     }
 
     sendPush(){
-      admin.messaging().send(this.message)
-        .then((response) => {
-          // Response is a message ID string.
-          console.log('Successfully sent message:', response);
-        })
-        .catch((error) => {
-          console.log('Error sending message:', error);
-        });
+      console.log(this.afMessaging);
+      // this.afMessaging.messaging().send(this.message)
+      //   .then((response) => {
+      //     // Response is a message ID string.
+      //     console.log('Successfully sent message:', response);
+      //   })
+      //   .catch((error) => {
+      //     console.log('Error sending message:', error);
+      //   });
+      this.requestPermission();
+    }
+
+    requestPermission() {
+      this.afMessaging.requestPermission
+        .subscribe(
+          () => { 
+            console.log('Permission granted!'); 
+          },
+          (error) => { console.error(error); },  
+        );
     }
 }
