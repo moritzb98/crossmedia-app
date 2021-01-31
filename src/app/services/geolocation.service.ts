@@ -45,7 +45,7 @@ export class GeolocationService {
         // data.coords.longitude
         if ("coords" in data) {
           console.log('Beobachte...');
-          alert("Beobachte");
+          //alert("Beobachte");
           this.lat =  data.coords.latitude;
           this.long = data.coords.longitude;
           if (!this.passedGeofence){
@@ -63,9 +63,8 @@ export class GeolocationService {
     let num: number;
     let stop = true;
     this.geofence.forEach(el => {
-      //num = (this.lat - el.lat) + (this.long - el.long);
       num = (Math.pow(Math.pow(this.lat - el.lat, 2), 0.5) + Math.pow(Math.pow(this.long - el.lng, 2), 0.5));
-      alert('Store: ' + el.store + ' - ' + num);
+      //alert('Store: ' + el.store + ' - ' + num);
       if (num < 0.001 && stop) {
           console.log('Geofence betreten: ', el);
           this.passedGeofence = true;
