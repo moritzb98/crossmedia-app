@@ -15,6 +15,9 @@ const { PushNotifications } = Plugins;
 })
 export class PushService {
 
+  private token;
+  private message;
+
   constructor(private router: Router) { }
   
   public initPush() {
@@ -40,6 +43,8 @@ export class PushService {
       PushNotifications.addListener('registration',
         (token: PushNotificationToken) => {
           //alert('Push registration success, token: ' + token.value);
+          console.log(token.value);
+          this.token = token.value;
         }
       );
   
@@ -63,5 +68,30 @@ export class PushService {
           alert('Push action performed: ' + JSON.stringify(notification));
         }
       );
+    }
+
+    setMessage(){
+      this.message = {
+        data: {
+          title_data: 'TEST - data',
+          body_data: 'Das ist ein Test - data'
+        },
+        notification: {
+          title: 'TEST',
+          body: 'Das ist ein Test'
+        },
+        token: this.token,
+      };
+    }
+
+    sendPush(){
+      admin.messaging().send(this.message)
+        .then((response) => {
+          // Response is a message ID string.
+          console.log('Successfully sent message:', response);
+        })
+        .catch((error) => {
+          console.log('Error sending message:', error);
+        });
     }
 }

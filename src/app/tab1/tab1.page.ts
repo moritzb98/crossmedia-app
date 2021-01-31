@@ -1,3 +1,4 @@
+import { PushService } from './../services/push.service';
 import { Component } from '@angular/core';
 import { GeolocationService } from '../services/geolocation.service';
 
@@ -8,11 +9,15 @@ import { GeolocationService } from '../services/geolocation.service';
 })
 export class Tab1Page {
 
-  constructor(private geolocationService: GeolocationService) {}
+  constructor(private geolocationService: GeolocationService, private pushService: PushService) {}
 
   getMyPosition() {
       this.geolocationService.getPosition();
   }
 
+  testSend(){
+    this.pushService.setMessage();
+    this.pushService.sendPush();
+  }
  
 }
