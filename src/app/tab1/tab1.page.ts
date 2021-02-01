@@ -18,10 +18,10 @@ export class Tab1Page {
   }
 
   testSend(){
-    
-    this.pushService.requestPermission();
-    this.pushService.receiveMessage();
-    this.message = this.pushService.currentMessage;
+    this.pushService.sendPush2();
+    // this.pushService.requestPermission();
+    // this.pushService.receiveMessage();
+    // this.message = this.pushService.currentMessage;
   }
  
 }

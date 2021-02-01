@@ -26,11 +26,18 @@ export class PushService {
   token;
   message;
   pushMessage;
+  pushMessage2;
   currentMessage = new BehaviorSubject(null);
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': 'key=AAAAt2lxe3A:APA91bE2y0kbxGn7ZoqgJO_tPM4o436o_guqmn5C1PI2GyZ0BUgAdoao63xZBI5LeUoI_03nUk4TtGohtBTWCn9wPTLUXFXXUlE9WPnUHclnxiykHsHDmCwax0fbjchkosH8ZlzIQ-XA'
+    })
+  };
+  httpOptions2 = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic NzI0ZjcyNTAtNmIzOS00M2VkLThmMWEtYzA1ODZhMjJiYjY3'
     })
   };
 
@@ -93,7 +100,19 @@ export class PushService {
      *  Push Notification to ios with onesignal
      * 
     ********************************************************/
-
+    sendPush2(){
+      this.pushMessage2 = {
+        "app_id": "1ccd31a2-a8de-4bb9-9e93-eedee889cc25",
+        "included_segments": ["Active Users"],
+        "headings": {"en": "Mein Titel"},
+        "contents": {"en": "Das ist mein Inhalt"},
+        "data": {"task": "Mit der API"}
+      };
+      this.http.post('https://onesignal.com/api/v1/notifications', this.pushMessage2, this.httpOptions2)
+      .subscribe(data => {
+        console.log(data);
+      });
+    }
 
     /******************************************************* 
      * 

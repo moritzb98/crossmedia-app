@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { PushService } from './services/push.service';
 import { GeolocationService } from './services/geolocation.service';
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 @Component({
   selector: 'app-root',
@@ -19,6 +20,7 @@ export class AppComponent {
     private statusBar: StatusBar,
     private pushService: PushService,
     private geolocationService: GeolocationService,
+    private oneSignal: OneSignal,
   ) {
     this.initializeApp();
   }
@@ -31,6 +33,23 @@ export class AppComponent {
       // Trigger Push Service
       this.pushService.initPush();
       this.geolocationService.initGeolocation();
+      if(this.platform.is('cordova')){
+        this.setupPush();
+      }
     });
+  }
+
+  setupPush(){
+    this.oneSignal.startInit('1ccd31a2-a8de-4bb9-9e93-eedee889cc25', '787748060016');
+    this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
+    this.oneSignal.handleNotificationOpened().subscribe(data => {
+      // Action if Notification is clicked
+      alert("Geklickt");
+    });
+    this.oneSignal.handleNotificationReceived().subscribe(data => {
+      alert("Geöffnet!");
+    });
+    this.oneSignal.endInit();
+    console.log("push");
   }
 }
