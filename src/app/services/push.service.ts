@@ -14,6 +14,8 @@ import { AngularFireMessaging } from '@angular/fire/messaging';
 import { mergeMapTo } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
+import { ToastController } from '@ionic/angular';
+
 const { PushNotifications } = Plugins;
 
 @Injectable({
@@ -32,11 +34,11 @@ export class PushService {
       // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       'Content-Type': 'application/json',
       // 'Access-Control-Allow-Credentials': 'true',
-      'Authorization': 'Bearer AAAAt2lxe3A:APA91bE2y0kbxGn7ZoqgJO_tPM4o436o_guqmn5C1PI2GyZ0BUgAdoao63xZBI5LeUoI_03nUk4TtGohtBTWCn9wPTLUXFXXUlE9WPnUHclnxiykHsHDmCwax0fbjchkosH8ZlzIQ-XA'
+      'Authorization': 'key=AAAAt2lxe3A:APA91bE2y0kbxGn7ZoqgJO_tPM4o436o_guqmn5C1PI2GyZ0BUgAdoao63xZBI5LeUoI_03nUk4TtGohtBTWCn9wPTLUXFXXUlE9WPnUHclnxiykHsHDmCwax0fbjchkosH8ZlzIQ-XA'
     })
   };
 
-  constructor(private router: Router, private afMessaging: AngularFireMessaging, public http: HttpClient,) { 
+  constructor(private router: Router, private afMessaging: AngularFireMessaging, public http: HttpClient, public toastController: ToastController,) { 
     this.afMessaging.messages.subscribe(
       (_message: AngularFireMessaging) => {
         _message.onMessage = _message.onMessage.bind(_message);
@@ -126,6 +128,7 @@ export class PushService {
         (payload) => { 
           console.log('Erhalten', payload); 
           this.currentMessage.next(payload);
+          this.presentToast('Test');
         }
       );
     }
@@ -141,8 +144,7 @@ export class PushService {
     listen() {
       this.afMessaging.messages
         .subscribe((message) => { 
-          console.log("listen:");
-          console.log(message);
+          this.message = message;
         });
     }
 
@@ -162,18 +164,19 @@ export class PushService {
       //         "body": "Das ist eine Test-Web-Nachricht",
       //         "requireInteraction": "true"
       //       }
-      //     }
-      //   }
+      //     },
+          
+      //   },
       // };
       this.pushMessage = {
-        
-            "notification": {
-              "title": "Test",
-              "body": "Das ist eine Test-Web-Nachricht",
-            },
-            "to": this.token,
-          
-    
+              "notification": {
+                "title": "Practical Ionic", 
+                "body": "Check out my book!",
+          },
+          "data": {
+              "info": "This is my special information for the app!"
+          },
+          "to": this.token
       };
       //this.httpOptions.headers.append('Authorization', 'key=' + this.token);
       //this.httpOptions.headers.append('Authorization', 'key=AAAAt2lxe3A:APA91bE2y0kbxGn7ZoqgJO_tPM4o436o_guqmn5C1PI2GyZ0BUgAdoao63xZBI5LeUoI_03nUk4TtGohtBTWCn9wPTLUXFXXUlE9WPnUHclnxiykHsHDmCwax0fbjchkosH8ZlzIQ-XA');
@@ -182,7 +185,14 @@ export class PushService {
         console.log(data);
       });
 
-     
+    }
+
+    async presentToast(msg) {
+      const toast = await this.toastController.create({
+        message: msg,
+        duration: 2000
+      });
+      toast.present();
     }
 
 }
