@@ -35,12 +35,7 @@ export class PushService {
   };
 
   constructor(private router: Router, private afMessaging: AngularFireMessaging, public http: HttpClient, public toastController: ToastController,) { 
-    this.afMessaging.messages.subscribe(
-      (_message: AngularFireMessaging) => {
-        _message.onMessage = _message.onMessage.bind(_message);
-        _message.onTokenRefresh = _message.onTokenRefresh.bind(_message);
-      }
-    )
+   
   }
   
   public initPush() {
@@ -93,21 +88,7 @@ export class PushService {
       );
     }
 
-    setMessage(){
-      
-    }
-
     requestPermission() {
-      // this.afMessaging.requestPermission
-      //   .pipe(mergeMapTo(this.afMessaging.tokenChanges))
-      //   .subscribe(
-      //     (token) => { 
-      //       console.log('Permission granted! Save to the server!', token); 
-      //       this.token = token;
-      //       this.sendPush();
-      //     },
-      //     (error) => { console.error(error); },  
-      //   );
       this.afMessaging.requestToken
         .subscribe(
           (token) => { 
@@ -145,37 +126,19 @@ export class PushService {
     }
 
     sendPush(){
-      // this.pushMessage = {
-      //   "message": {
-      //     "token" : this.token,
-      //     "notification": {
-      //       "title": "Test Nachricht",
-      //       "body": "Das ist eine Testnachricht"
-      //     },
-      //     "webpush": {
-      //       "headers": {
-      //         "Urgency": "high"
-      //       },
-      //       "notification": {
-      //         "body": "Das ist eine Test-Web-Nachricht",
-      //         "requireInteraction": "true"
-      //       }
-      //     },
-          
-      //   },
-      // };
       this.pushMessage = {
-              "notification": {
-                "title": "Practical Ionic", 
-                "body": "Check out my book!",
-          },
-          "data": {
-              "info": "This is my special information for the app!"
-          },
-          "to": this.token
+        "priority":"HIGH",
+        "notification": {
+            "title": "Practical Ionic", 
+            "body": "Check out my book!",
+            },
+            "data": {
+                "info": "This is my special information for the app!"
+            },
+        "to": this.token
       };
-      //this.httpOptions.headers.append('Authorization', 'key=' + this.token);
-      //this.httpOptions.headers.append('Authorization', 'key=AAAAt2lxe3A:APA91bE2y0kbxGn7ZoqgJO_tPM4o436o_guqmn5C1PI2GyZ0BUgAdoao63xZBI5LeUoI_03nUk4TtGohtBTWCn9wPTLUXFXXUlE9WPnUHclnxiykHsHDmCwax0fbjchkosH8ZlzIQ-XA');
+      console.log(this.pushMessage);
+      
       this.http.post('https://fcm.googleapis.com/fcm/send', this.pushMessage, this.httpOptions)
       .subscribe(data => {
         console.log(data);
