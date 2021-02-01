@@ -20,6 +20,7 @@ import { environment } from '../environments/environment';
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { OneSignal } from '@ionic-native/onesignal/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     Geolocation,
     PushService,
-    AsyncPipe
+    AsyncPipe,
+    OneSignal
   ],
   bootstrap: [AppComponent]
 })
