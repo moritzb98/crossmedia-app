@@ -88,6 +88,12 @@ export class PushService {
       );
     }
 
+
+    /******************************************************* 
+     * 
+     *  Push Notification to Browser and toast
+     * 
+    ********************************************************/
     requestPermission() {
       this.afMessaging.requestToken
         .subscribe(
