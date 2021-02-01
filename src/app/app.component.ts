@@ -32,13 +32,18 @@ export class AppComponent {
 
       // Trigger Push Service
       this.pushService.initPush();
+
+      // Init Geolocations
       this.geolocationService.initGeolocation();
+
+      //Trigger One Signal if is not in Browser
       if(this.platform.is('cordova')){
         this.setupPush();
       }
     });
   }
 
+  // Setupt for One Signal
   setupPush(){
     this.oneSignal.startInit('1ccd31a2-a8de-4bb9-9e93-eedee889cc25', '787748060016');
     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
@@ -47,6 +52,7 @@ export class AppComponent {
       alert("Geklickt");
     });
     this.oneSignal.handleNotificationReceived().subscribe(data => {
+      // Action if Notification is opened
       alert("Geöffnet!");
     });
     this.oneSignal.endInit();
