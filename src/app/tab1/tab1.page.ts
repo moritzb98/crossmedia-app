@@ -17,7 +17,7 @@ export class Tab1Page {
 
   testSend(){
     this.pushService.setMessage();
-    this.pushService.sendPush();
+    this.pushService.requestPermission();
   }
  
 }
