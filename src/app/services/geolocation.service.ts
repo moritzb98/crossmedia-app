@@ -35,17 +35,12 @@ export class GeolocationService {
         this.lat =  resp.coords.latitude;
         this.long = resp.coords.longitude;
      }).catch((error) => {
-        console.log('Error getting location', error);
+        alert(error);
      });
   
     let watch = this.geolocation.watchPosition({ enableHighAccuracy: true });
     watch.subscribe((data) => {
-        // data can be a set of coordinates, or an error (if an error occurred).
-        // data.coords.latitude
-        // data.coords.longitude
         if ("coords" in data) {
-          console.log('Beobachte...');
-          //alert("Beobachte");
           this.lat =  data.coords.latitude;
           this.long = data.coords.longitude;
           if (!this.passedGeofence){
@@ -66,16 +61,16 @@ export class GeolocationService {
       num = (Math.pow(Math.pow(this.lat - el.lat, 2), 0.5) + Math.pow(Math.pow(this.long - el.lng, 2), 0.5));
       //alert('Store: ' + el.store + ' - ' + num);
       if (num < 0.001 && stop) {
-          console.log('Geofence betreten: ', el);
-          this.passedGeofence = true;
-          this.passedStore = el;
-          stop = false;
+        //Geofence betreten  
+        this.passedGeofence = true;
+        this.passedStore = el;
+        stop = false;
 
-          alert('Geofence betreten!');
+        alert('Geofence betreten!');
       } else if (num > 0.001 && stop) {
-          console.log('Geofence nicht betreten: ', el);
-          this.passedGeofence = false;
-          this.passedStore = {};
+        // Geofence nicht betreten
+        this.passedGeofence = false;
+        this.passedStore = {};
       }
     });
 
@@ -85,9 +80,9 @@ export class GeolocationService {
       let num: number;
       num = (this.lat - this.passedStore.lat) + (this.long - this.passedStore.long);
       if (num > 0.001) {
+        // Geofence verlassen
         this.passedGeofence = false;
         this.passedStore = {};
-        alert('Geofence verlassen!');
     }
   }
 
