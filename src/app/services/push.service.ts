@@ -8,6 +8,7 @@ import {
 } from '@capacitor/core';
 
 import { Router } from '@angular/router';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { mergeMapTo } from 'rxjs/operators';
@@ -20,11 +21,29 @@ const { PushNotifications } = Plugins;
 })
 export class PushService {
 
-  private token;
-  private message;
+  token;
+  message;
+  pushMessage;
   currentMessage = new BehaviorSubject(null);
+  httpOptions = {
+    headers: new HttpHeaders({
+      //'Access-Control-Allow-Origin':  '*',
+      // 'Access-Control-Allow-Methods': 'POST',
+      // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Content-Type': 'application/json',
+      // 'Access-Control-Allow-Credentials': 'true',
+      'Authorization': 'Bearer AAAAt2lxe3A:APA91bE2y0kbxGn7ZoqgJO_tPM4o436o_guqmn5C1PI2GyZ0BUgAdoao63xZBI5LeUoI_03nUk4TtGohtBTWCn9wPTLUXFXXUlE9WPnUHclnxiykHsHDmCwax0fbjchkosH8ZlzIQ-XA'
+    })
+  };
 
-  constructor(private router: Router, private afMessaging: AngularFireMessaging) { }
+  constructor(private router: Router, private afMessaging: AngularFireMessaging, public http: HttpClient,) { 
+    this.afMessaging.messages.subscribe(
+      (_message: AngularFireMessaging) => {
+        _message.onMessage = _message.onMessage.bind(_message);
+        _message.onTokenRefresh = _message.onTokenRefresh.bind(_message);
+      }
+    )
+  }
   
   public initPush() {
     if (Capacitor.platform !== 'web') {
@@ -77,39 +96,38 @@ export class PushService {
     }
 
     setMessage(){
-      this.message = {
-        data: {
-          title_data: 'TEST - data',
-          body_data: 'Das ist ein Test - data'
-        },
-        notification: {
-          title: 'TEST',
-          body: 'Das ist ein Test'
-        },
-        token: this.token,
-      };
-    }
-
-    sendPush(){
-      console.log(this.afMessaging);
-      // this.afMessaging.messaging().send(this.message)
-      //   .then((response) => {
-      //     // Response is a message ID string.
-      //     console.log('Successfully sent message:', response);
-      //   })
-      //   .catch((error) => {
-      //     console.log('Error sending message:', error);
-      //   });
-      this.requestPermission();
+      
     }
 
     requestPermission() {
-      this.afMessaging.requestPermission
-        .pipe(mergeMapTo(this.afMessaging.tokenChanges))
+      // this.afMessaging.requestPermission
+      //   .pipe(mergeMapTo(this.afMessaging.tokenChanges))
+      //   .subscribe(
+      //     (token) => { 
+      //       console.log('Permission granted! Save to the server!', token); 
+      //       this.token = token;
+      //       this.sendPush();
+      //     },
+      //     (error) => { console.error(error); },  
+      //   );
+      this.afMessaging.requestToken
         .subscribe(
-          (token) => { console.log('Permission granted! Save to the server!', token); },
-          (error) => { console.error(error); },  
+          (token) => { 
+            console.log('Permission granted! Save to the server!', token); 
+            this.token = token;
+            this.sendPush();
+          }
         );
+    }
+
+    receiveMessage(){
+      this.afMessaging.messages
+      .subscribe(
+        (payload) => { 
+          console.log('Erhalten', payload); 
+          this.currentMessage.next(payload);
+        }
+      );
     }
 
     deleteToken() {
@@ -119,4 +137,52 @@ export class PushService {
           (token) => { console.log('Token deleted!'); },
         );
     }
+
+    listen() {
+      this.afMessaging.messages
+        .subscribe((message) => { 
+          console.log("listen:");
+          console.log(message);
+        });
+    }
+
+    sendPush(){
+      // this.pushMessage = {
+      //   "message": {
+      //     "token" : this.token,
+      //     "notification": {
+      //       "title": "Test Nachricht",
+      //       "body": "Das ist eine Testnachricht"
+      //     },
+      //     "webpush": {
+      //       "headers": {
+      //         "Urgency": "high"
+      //       },
+      //       "notification": {
+      //         "body": "Das ist eine Test-Web-Nachricht",
+      //         "requireInteraction": "true"
+      //       }
+      //     }
+      //   }
+      // };
+      this.pushMessage = {
+        
+            "notification": {
+              "title": "Test",
+              "body": "Das ist eine Test-Web-Nachricht",
+            },
+            "to": this.token,
+          
+    
+      };
+      //this.httpOptions.headers.append('Authorization', 'key=' + this.token);
+      //this.httpOptions.headers.append('Authorization', 'key=AAAAt2lxe3A:APA91bE2y0kbxGn7ZoqgJO_tPM4o436o_guqmn5C1PI2GyZ0BUgAdoao63xZBI5LeUoI_03nUk4TtGohtBTWCn9wPTLUXFXXUlE9WPnUHclnxiykHsHDmCwax0fbjchkosH8ZlzIQ-XA');
+      this.http.post('https://fcm.googleapis.com/fcm/send', this.pushMessage, this.httpOptions)
+      .subscribe(data => {
+        console.log(data);
+      });
+
+     
+    }
+
 }

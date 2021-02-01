@@ -9,6 +9,8 @@ import { GeolocationService } from '../services/geolocation.service';
 })
 export class Tab1Page {
 
+  message;
+
   constructor(private geolocationService: GeolocationService, private pushService: PushService) {}
 
   getMyPosition() {
@@ -16,8 +18,10 @@ export class Tab1Page {
   }
 
   testSend(){
-    this.pushService.setMessage();
+    
     this.pushService.requestPermission();
+    this.pushService.receiveMessage();
+    this.message = this.pushService.currentMessage;
   }
  
 }
