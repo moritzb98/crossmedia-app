@@ -6,7 +6,15 @@ import {
   PushNotificationActionPerformed,
   Capacitor,
 } from '@capacitor/core';
+
 import { Router } from '@angular/router';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
+
+import { AngularFireMessaging } from '@angular/fire/messaging';
+import { mergeMapTo } from 'rxjs/operators';
+import { BehaviorSubject } from 'rxjs';
+
+import { ToastController } from '@ionic/angular';
 
 const { PushNotifications } = Plugins;
 
@@ -15,7 +23,20 @@ const { PushNotifications } = Plugins;
 })
 export class PushService {
 
-  constructor(private router: Router) { }
+  token;
+  message;
+  pushMessage;
+  currentMessage = new BehaviorSubject(null);
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'key=AAAAt2lxe3A:APA91bE2y0kbxGn7ZoqgJO_tPM4o436o_guqmn5C1PI2GyZ0BUgAdoao63xZBI5LeUoI_03nUk4TtGohtBTWCn9wPTLUXFXXUlE9WPnUHclnxiykHsHDmCwax0fbjchkosH8ZlzIQ-XA'
+    })
+  };
+
+  constructor(private router: Router, private afMessaging: AngularFireMessaging, public http: HttpClient, public toastController: ToastController,) { 
+   
+  }
   
   public initPush() {
     if (Capacitor.platform !== 'web') {
@@ -40,6 +61,8 @@ export class PushService {
       PushNotifications.addListener('registration',
         (token: PushNotificationToken) => {
           //alert('Push registration success, token: ' + token.value);
+          console.log(token.value);
+          //this.token = token.value;
         }
       );
   
@@ -64,4 +87,77 @@ export class PushService {
         }
       );
     }
+
+
+    /******************************************************* 
+     * 
+     *  Push Notification to Browser and toast
+     * 
+    ********************************************************/
+    requestPermission() {
+      this.afMessaging.requestToken
+        .subscribe(
+          (token) => { 
+            console.log('Permission granted! Save to the server!', token); 
+            this.token = token;
+            this.sendPush();
+          }
+        );
+    }
+
+    receiveMessage(){
+      this.afMessaging.messages
+      .subscribe(
+        (payload) => { 
+          console.log('Erhalten', payload); 
+          this.currentMessage.next(payload);
+          this.presentToast('Test');
+        }
+      );
+    }
+
+    deleteToken() {
+      this.afMessaging.getToken
+        .pipe(mergeMapTo(token => this.afMessaging.deleteToken(token)))
+        .subscribe(
+          (token) => { console.log('Token deleted!'); },
+        );
+    }
+
+    listen() {
+      this.afMessaging.messages
+        .subscribe((message) => { 
+          this.message = message;
+        });
+    }
+
+    sendPush(){
+      this.pushMessage = {
+        "priority":"HIGH",
+        "notification": {
+            "title": "Practical Ionic", 
+            "body": "Check out my book!",
+            },
+            "data": {
+                "info": "This is my special information for the app!"
+            },
+        "to": this.token
+      };
+      console.log(this.pushMessage);
+      
+      this.http.post('https://fcm.googleapis.com/fcm/send', this.pushMessage, this.httpOptions)
+      .subscribe(data => {
+        console.log(data);
+      });
+
+    }
+
+    async presentToast(msg) {
+      const toast = await this.toastController.create({
+        message: msg,
+        duration: 2000
+      });
+      toast.present();
+    }
+
 }

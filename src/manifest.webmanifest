@@ -1,0 +1,8 @@
+{
+    "name": "app",
+    "short_name": "app",
+    "gcm_sender_id": "787748060016",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "./",
+}
