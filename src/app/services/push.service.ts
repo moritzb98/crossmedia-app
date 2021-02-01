@@ -29,11 +29,7 @@ export class PushService {
   currentMessage = new BehaviorSubject(null);
   httpOptions = {
     headers: new HttpHeaders({
-      //'Access-Control-Allow-Origin':  '*',
-      // 'Access-Control-Allow-Methods': 'POST',
-      // 'Access-Control-Allow-Headers': 'Content-Type, Authorization',
       'Content-Type': 'application/json',
-      // 'Access-Control-Allow-Credentials': 'true',
       'Authorization': 'key=AAAAt2lxe3A:APA91bE2y0kbxGn7ZoqgJO_tPM4o436o_guqmn5C1PI2GyZ0BUgAdoao63xZBI5LeUoI_03nUk4TtGohtBTWCn9wPTLUXFXXUlE9WPnUHclnxiykHsHDmCwax0fbjchkosH8ZlzIQ-XA'
     })
   };
