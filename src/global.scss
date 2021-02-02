@@ -29,13 +29,29 @@
     margin: 20px;
 }
 ion-content {
-    --background: blue !important;
+    --background: #EBEBEB !important;
+    border-style: none !important;
 }
 
 ion-toolbar {
-    --background: blue !important;   
+    --background:#778C85  !important; 
+    border-style: none !important;
+    --border-color: #778C85;
+  
 }
+.toolbar-background{
+    border: 0px !important;
+    border-bottom: none !important;
+}
+
 ion-tab-bar {
-    --background: blue !important;   
+    --background: white !important; 
+    border-style: none !important;
+    overflow: none !important;
+  
+}
+
+ion-header{
+    background:#778C85 !important;
 }
  
