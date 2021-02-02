@@ -23,9 +23,6 @@
       <ion-label>Kartoffeln</ion-label>
     </ion-item>
     <ion-item>
-      <ion-avatar slot="start">
-        <img src="./avatar-finn.png"> 
-      </ion-avatar>
       <ion-label>Brot</ion-label>
     </ion-item>
     <ion-item>
@@ -39,12 +36,15 @@
   <ion-list>
 
     <ion-item *ngFor="let item of Listitems;">
+      <ion-avatar>
+        <img src="dsd">
+      </ion-avatar>
         <ion-label>{{item}}</ion-label>
     </ion-item>
 
     <ion-item>
       <input [(ngModel)]="itemAdd" > 
-      <a (click)="additem">Hinzufügen</a>
+      <a (click)="additem()">Hinzufügen</a>
     </ion-item>
 </ion-list>
 
