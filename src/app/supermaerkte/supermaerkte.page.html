@@ -4,6 +4,64 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Hol Dir hier Deine Beute!</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Nur 5,3km von dir entfernt:</ion-card-subtitle>
+      <div class="right" >
+        <img class="right" src= "./assets/aldi.png" height="135px">
+      </div>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Der am nähesten bei Dir liegende Discounter ist der Aldi Süd Markt 
+      in der Musterstraße 1 in Heilbronn.
+      Öffnungszeiten: 07:30-19:30Uhr (Mo-Sa)
+      <div class="right" >
+        <button type="button" class="btn btn-primary">Zu den Angeboten</button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+    
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Nur 7,4km von dir entfernt:</ion-card-subtitle>
+      <div class="right" >
+        <img class="right" src= "./assets/Rewe.png" height="135px">
+      </div>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Besuche den Rewe Markt in der Hauptstraße 1 in Heilbronn.
+      Öffnungszeiten: 07:30-19:30Uhr (Mo-Sa)
+      <div class="right" >
+        <button type="button">Zu den Angeboten</button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Nur 9,8km von dir entfernt:</ion-card-subtitle>
+      <div class="right" >
+        <img class="right" src= "./assets/LidlLogo.png" height="135px">
+      </div>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Der nächste Lidl befindet sich in der Mustermannstraße 1 in Heilbronn.
+      Öffnungszeiten: 07:30-19:30Uhr (Mo-Sa)
+      <div class="right" >
+        <button type="button">Zu den Angeboten</button>
+      </div>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
