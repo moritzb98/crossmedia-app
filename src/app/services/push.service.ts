@@ -104,8 +104,8 @@ export class PushService {
       this.pushMessage2 = {
         "app_id": "1ccd31a2-a8de-4bb9-9e93-eedee889cc25",
         "included_segments": ["Active Users"],
-        "headings": {"en": "Mein Titel"},
-        "contents": {"en": "Das ist mein Inhalt"},
+        "headings": {"en": "titel"},
+        "contents": {"en": "content"},
         "data": {"task": "Mit der API"}
       };
       this.http.post('https://onesignal.com/api/v1/notifications', this.pushMessage2, this.httpOptions2)
