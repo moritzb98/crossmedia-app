@@ -100,13 +100,13 @@ export class PushService {
      *  Push Notification to ios with onesignal
      * 
     ********************************************************/
-    sendPush2(){
+    sendPush2(store){
       this.pushMessage2 = {
         "app_id": "1ccd31a2-a8de-4bb9-9e93-eedee889cc25",
         "included_segments": ["Active Users"],
-        "headings": {"en": "titel"},
-        "contents": {"en": "content"},
-        "data": {"task": "Mit der API"}
+        "headings": {"en": "Angebote von " + store + "!"},
+        "contents": {"en": "Du bist in der Nähe des Stores, schaue dir doch mal die Angebote an."},
+        "data": {"task": "Automatische Push-Nachricht"}
       };
       this.http.post('https://onesignal.com/api/v1/notifications', this.pushMessage2, this.httpOptions2)
       .subscribe(data => {

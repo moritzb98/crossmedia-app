@@ -18,7 +18,7 @@ export class Tab1Page {
   }
 
   testSend(){
-    this.pushService.sendPush2();
+    this.pushService.sendPush2("Rewe");
     // this.pushService.requestPermission();
     // this.pushService.receiveMessage();
     // this.message = this.pushService.currentMessage;

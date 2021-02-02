@@ -1,3 +1,4 @@
+import { PushService } from './push.service';
 import { Injectable } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 
@@ -12,17 +13,17 @@ export class GeolocationService {
   passedGeofence: boolean;
   passedStore;
 
-  constructor(private geolocation: Geolocation) {
+  constructor(private geolocation: Geolocation, private pushService: PushService) {
       this.lat = 0;
       this.long = 0;
       this.geofence = [
         {
-          store: 'rewe',
+          store: 'Rewe',
           lat: 49.2264,
           long: 9.149
         },
         {
-          store: 'aldi',
+          store: 'Aldi',
           lat: 42.111,
           long: 8.555
         }
@@ -65,8 +66,7 @@ export class GeolocationService {
         this.passedGeofence = true;
         this.passedStore = el;
         stop = false;
-
-        alert('Geofence betreten!');
+        this.pushService.sendPush2(el.store);
       } else if (num > 0.001 && stop) {
         // Geofence nicht betreten
         this.passedGeofence = false;
