@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./einkaufsliste.page.scss'],
 })
 export class EinkaufslistePage implements OnInit {
-  Listitems = [];
+  public form = [
+    { val: 'Pepperoni', isChecked: true },
+    { val: 'Sausage', isChecked: false },
+    { val: 'Mushroom', isChecked: false }
+  ];
   itemAdd;
   constructor() { }
 
@@ -14,7 +18,7 @@ export class EinkaufslistePage implements OnInit {
   }
 
   additem() {
-    this.Listitems.push(this.itemAdd);
+    this.form.push({val: this.itemAdd, isChecked: false});
     this.itemAdd = "";
   }
 
