@@ -14,9 +14,8 @@ export class EinkaufslistePage implements OnInit {
   }
 
   additem() {
-    console.log('test');
-    console.log(this.itemAdd);
     this.Listitems.push(this.itemAdd);
+    this.itemAdd = "";
   }
 
 }
