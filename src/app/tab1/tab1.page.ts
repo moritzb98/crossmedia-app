@@ -17,11 +17,4 @@ export class Tab1Page {
       this.geolocationService.getPosition();
   }
 
-  testSend(){
-    this.pushService.sendPush2("Rewe");
-    // this.pushService.requestPermission();
-    // this.pushService.receiveMessage();
-    // this.message = this.pushService.currentMessage;
-  }
- 
 }
