@@ -21,6 +21,14 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
+        path: 'einkaufsliste',
+        loadChildren: () => import('../einkaufsliste/einkaufsliste.module').then( m => m.EinkaufslistePageModule)
+      },
+      {
+        path: 'supermaerkte',
+        loadChildren: () => import('../supermaerkte/supermaerkte.module').then( m => m.SupermaerktePageModule)
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab2',
         pathMatch: 'full'
