@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./einkaufsliste.page.scss'],
 })
 export class EinkaufslistePage implements OnInit {
-  Listitems = ['first', 'second'];
+  Listitems = [];
+  itemAdd;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  additem() {
+    console.log('test');
+    console.log(this.itemAdd);
+    this.Listitems.push(this.itemAdd);
   }
 
 }

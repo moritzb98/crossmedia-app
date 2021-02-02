@@ -28,4 +28,14 @@
 .container{
     margin: 20px;
 }
+ion-content {
+    --background: blue !important;
+}
+
+ion-toolbar {
+    --background: blue !important;   
+}
+ion-tab-bar {
+    --background: blue !important;   
+}
  
