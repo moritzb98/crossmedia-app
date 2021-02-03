@@ -76,6 +76,16 @@ export class GeolocationService {
 
   }
 
+  watchBackground(lat, long){
+    this.lat = lat;
+    this.long = long;
+    if (!this.passedGeofence){
+      this.compareCoords();
+    } else {
+      this.checkFenceleaved();
+    }
+  }
+
   checkFenceleaved() {
       let num: number;
       num = (this.lat - this.passedStore.lat) + (this.long - this.passedStore.long);

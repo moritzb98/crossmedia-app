@@ -7,6 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { PushService } from './services/push.service';
 import { GeolocationService } from './services/geolocation.service';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
+import { BackgroundGeolocationService } from './services/background-geolocation.service';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ export class AppComponent {
     private pushService: PushService,
     private geolocationService: GeolocationService,
     private oneSignal: OneSignal,
+    private backgeo: BackgroundGeolocationService,
   ) {
     this.initializeApp();
   }
@@ -36,6 +38,8 @@ export class AppComponent {
       // Init Geolocations
       this.geolocationService.initGeolocation();
 
+      this.backgeo.configureBackgroundGeolocation();
+
       //Trigger One Signal if is not in Browser
       if(this.platform.is('cordova')){
         this.setupPush();
@@ -49,13 +53,13 @@ export class AppComponent {
     this.oneSignal.inFocusDisplaying(this.oneSignal.OSInFocusDisplayOption.Notification);
     this.oneSignal.handleNotificationOpened().subscribe(data => {
       // Action if Notification is clicked
-      alert("Geklickt");
+      
     });
     this.oneSignal.handleNotificationReceived().subscribe(data => {
       // Action if Notification is opened
-      alert("Geöffnet!");
+      
     });
     this.oneSignal.endInit();
-    console.log("push");
+    
   }
 }
