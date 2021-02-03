@@ -48,7 +48,7 @@ export class BackgroundGeolocationService {
 
     // 2.  Configure the plugin with #ready
     BackgroundGeolocation.ready({
-      reset: true,
+      reset: false,
       debug: false,
       logLevel: BackgroundGeolocation.LOG_LEVEL_VERBOSE,
       desiredAccuracy: BackgroundGeolocation.DESIRED_ACCURACY_HIGH,
