@@ -18,7 +18,9 @@
 }
 
 h3{
-    font-size: 14px;
+    font-size: 25;
+    font-family: 'Roboto';
+    color: white;
     margin-bottom:0px;
     font-weight:300;
     margin-left: 30px;
@@ -28,6 +30,8 @@ h1{
     font-size: 30px;
     margin-top:5px;
     text-align: center;
+    font-family: 'Roboto';
+    color: white;
 }
 
 .settings{
@@ -38,4 +42,10 @@ h1{
 
 ion-toolbar{
     z-index:-1;
+}
+
+ion-title{
+    color: white;
+    font-size: 25px;    
+    font-family: 'Roboto';
 }
