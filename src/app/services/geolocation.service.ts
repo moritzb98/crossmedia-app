@@ -88,7 +88,10 @@ export class GeolocationService {
 
   getPosition() {
     alert('Deine Position: ' + this.lat + ', ' + this.long);
-    return {lat: this.lat, long: this.long};
+    this.geofence.forEach(el => {
+      let num = (Math.pow(Math.pow(this.lat - el.lat, 2), 0.5) + Math.pow(Math.pow(this.long - el.lng, 2), 0.5));
+      alert('Store: ' + el.store + ' - ' + num);
+    });
   }
 
 }
