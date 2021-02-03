@@ -5,10 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyAG8grulyTimhG5e0NfpY1HeOGn_sqaDaU',
-    projectId: 'crossmedia-app-f06f5',
-    messagingSenderId: '787748060016',
-    appId: '1:787748060016:ios:7ba0f14042aab3fa616db5'
+    apiKey: "AIzaSyDvXY4T_RnU-ksHPO9DBsQQmQ4xpaTK3cc",
+    authDomain: "crossmedia-app-f06f5.firebaseapp.com",
+    databaseURL: "https://crossmedia-app-f06f5-default-rtdb.firebaseio.com",
+    projectId: "crossmedia-app-f06f5",
+    storageBucket: "crossmedia-app-f06f5.appspot.com",
+    messagingSenderId: "787748060016",
+    appId: "1:787748060016:web:8df1d1a760b438c9616db5",
+    measurementId: "G-0C0Z01PGTC"
   }
 };
 

@@ -1,0 +1,73 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Backend
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Backend Angebote</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item>
+    <ion-label position="stacked">Titel</ion-label>
+    <ion-input name="test" [(ngModel)]="deal.title" required></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Content</ion-label>
+    <ion-textarea [(ngModel)]="deal.content" required></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Store</ion-label>
+    <ion-textarea [(ngModel)]="deal.store" required></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Neuer Preis</ion-label>
+    <ion-textarea [(ngModel)]="deal.price_new" required></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Alter Preis</ion-label>
+    <ion-textarea [(ngModel)]="deal.price_old" required></ion-textarea>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">Kategorie</ion-label>
+    <ion-textarea [(ngModel)]="deal.category" required></ion-textarea>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked">Bild-Link</ion-label>
+    <ion-textarea [(ngModel)]="deal.img" required></ion-textarea>
+  </ion-item>
+
+  <ion-footer>
+    <ion-toolbar color="success">
+      <ion-button expand="full" fill="clear" color="light" (click)="addDeal()">
+        <ion-icon name="checkmark" slot="start"></ion-icon>
+        Angebot Hinzufügen
+      </ion-button>
+    </ion-toolbar>
+    <ion-row no-padding text-center>
+        <ion-col size="6">
+          <ion-button expand="block" fill="outline" color="danger" (click)="deleteDeal()">
+            <ion-icon name="trash" slot="start"></ion-icon>
+            Löschen
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button expand="block" fill="solid" color="success" (click)="updateDeal()">
+            <ion-icon name="save" slot="start"></ion-icon>
+            Update
+          </ion-button>
+        </ion-col>
+    </ion-row>
+  </ion-footer>
+</ion-content>

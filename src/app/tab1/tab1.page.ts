@@ -1,20 +1,26 @@
+import { Angebot, AngeboteService } from './../services/angebote.service';
+import { Observable } from 'rxjs';
 import { PushService } from './../services/push.service';
-import { Component } from '@angular/core';
-import { GeolocationService } from '../services/geolocation.service';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page {
+export class Tab1Page implements OnInit{
 
-  message;
+  private deals: Observable<Angebot[]>;
+   
+  constructor(private pushService: PushService, private dealServcie: AngeboteService) {}
 
-  constructor(private geolocationService: GeolocationService, private pushService: PushService) {}
-
-  getMyPosition() {
-      this.geolocationService.getPosition();
+  ngOnInit() {
+    this.deals = this.dealServcie.getDeals();
   }
+
+  test(){
+    console.log(this.deals);
+  }
+
 
 }

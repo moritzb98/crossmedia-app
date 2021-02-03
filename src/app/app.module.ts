@@ -15,15 +15,21 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFirestoreModule, SETTINGS } from '@angular/fire/firestore';
 import { AsyncPipe } from '../../node_modules/@angular/common';
 import { environment } from '../environments/environment';
 
 import { HttpClientModule } from '@angular/common/http';
 
 import { OneSignal } from '@ionic-native/onesignal/ngx';
+import { FormsModule } from '@angular/forms';
+import { BackendComponent } from './backend/backend.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent,
+    BackendComponent
+  ],
   entryComponents: [],
   imports: [
     BrowserModule, 
@@ -34,6 +40,8 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
     HttpClientModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,
+    AngularFirestoreModule,
+    FormsModule
   ],
   providers: [
     StatusBar,
@@ -42,7 +50,8 @@ import { OneSignal } from '@ionic-native/onesignal/ngx';
     Geolocation,
     PushService,
     AsyncPipe,
-    OneSignal
+    OneSignal,
+    { provide: SETTINGS, useValue: {} },
   ],
   bootstrap: [AppComponent]
 })

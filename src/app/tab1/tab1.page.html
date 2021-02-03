@@ -14,148 +14,30 @@
   </ion-header>
 
   <div>
-    <div class="flex-container">
-      <ion-card class="flex-item left">
-        <ion-card-header>
-          <div class="mittig" >
-            <img src= "./assets/Kartoffeln.png" height="135px">
-          </div>
-          <ion-card-subtitle>Lebensmittel</ion-card-subtitle>
-          <ion-card-title>Kartoffel Wedges</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Keep close to Nature's heart... 
-        </ion-card-content>
-        <ion-chip class="rechtsunten" color="primary">
-          <ion-label>2,99€</ion-label>
-          <ion-badge color="medium">4,95€</ion-badge>
-        </ion-chip>
-      </ion-card>
-      <ion-card class="flex-item right">
-        <ion-card-header>
-          <div class="mittig" >
-            <img class="mittig" src= "./assets/cola.png" height="135px">
-          </div>
-          <ion-card-subtitle>Getränke</ion-card-subtitle>
-          <ion-card-title>Coca Cola</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Keep close to Nature's heart... 
-        </ion-card-content>
-        <ion-chip class="rechtsunten" color="primary">
-          <ion-label>2,99€</ion-label>
-          <ion-badge color="medium">4,95€</ion-badge>
-        </ion-chip>
-      </ion-card>
-    </div>
 
-    <div class="flex-container">
-      <ion-card class="flex-item left">
-        <ion-card-header>
-          <div class="mittig" >
-            <img src= "./assets/Kartoffeln.png" height="135px">
-          </div>
-          <ion-card-subtitle>Lebensmittel</ion-card-subtitle>
-          <ion-card-title>Kartoffel Wedges</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Keep close to Nature's heart... 
-        </ion-card-content>
-        <ion-chip class="rechtsunten" color="primary">
-          <ion-label>2,99€</ion-label>
-          <ion-badge color="medium">4,95€</ion-badge>
-        </ion-chip>
-      </ion-card>
-      <ion-card class="flex-item right">
-        <ion-card-header>
-          <div class="mittig" >
-            <img class="mittig" src= "./assets/cola.png" height="135px">
-          </div>
-          <ion-card-subtitle>Getränke</ion-card-subtitle>
-          <ion-card-title>Coca Cola</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Keep close to Nature's heart... 
-        </ion-card-content>
-        <ion-chip class="rechtsunten" color="primary">
-          <ion-label>2,99€</ion-label>
-          <ion-badge color="medium">4,95€</ion-badge>
-        </ion-chip>
-      </ion-card>
-    </div>
-
-    <div class="flex-container">
-      <ion-card class="flex-item left">
-        <ion-card-header>
-          <div class="mittig" >
-            <img src= "./assets/Kartoffeln.png" height="135px">
-          </div>
-          <ion-card-subtitle>Lebensmittel</ion-card-subtitle>
-          <ion-card-title>Kartoffel Wedges</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Keep close to Nature's heart... 
-        </ion-card-content>
-        <ion-chip class="rechtsunten" color="primary">
-          <ion-label>2,99€</ion-label>
-          <ion-badge color="medium">4,95€</ion-badge>
-        </ion-chip>
-      </ion-card>
-      <ion-card class="flex-item right">
-        <ion-card-header>
-          <div class="mittig" >
-            <img class="mittig" src= "./assets/cola.png" height="135px">
-          </div>
-          <ion-card-subtitle>Getränke</ion-card-subtitle>
-          <ion-card-title>Coca Cola</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Keep close to Nature's heart... 
-        </ion-card-content>
-        <ion-chip class="rechtsunten" color="primary">
-          <ion-label>2,99€</ion-label>
-          <ion-badge color="medium">4,95€</ion-badge>
-        </ion-chip>
-      </ion-card>
-    </div>
-
-    <div class="flex-container">
-      <ion-card class="flex-item left">
-        <ion-card-header>
-          <div class="mittig" >
-            <img src= "./assets/Kartoffeln.png" height="135px">
-          </div>
-          <ion-card-subtitle>Lebensmittel</ion-card-subtitle>
-          <ion-card-title>Kartoffel Wedges</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Keep close to Nature's heart... 
-        </ion-card-content>
-        <ion-chip class="rechtsunten" color="primary">
-          <ion-label>2,99€</ion-label>
-          <ion-badge color="medium">4,95€</ion-badge>
-        </ion-chip>
-      </ion-card>
-      <ion-card class="flex-item right">
-        <ion-card-header>
-          <div class="mittig" >
-            <img class="mittig" src= "./assets/rewe.png" height="135px">
-          </div>
-          <ion-card-subtitle>Getränke</ion-card-subtitle>
-          <ion-card-title>Coca Cola</ion-card-title>
-        </ion-card-header>
-        <ion-card-content>
-          Keep close to Nature's heart... 
-        </ion-card-content>
-        <ion-chip class="rechtsunten" color="primary">
-          <ion-label>2,99€</ion-label>
-          <ion-badge color="medium">4,95€</ion-badge>
-        </ion-chip>
-      </ion-card>
-    </div>
+  <div class="flex-container">
+    <ion-card *ngFor="let deal of (deals | async)" class="flex-item">
+      <ion-card-header>
+        <div class="mittig" >
+          <img [src]="deal.img" height="135px">
+        </div>
+        <ion-card-subtitle>{{ deal.category }}</ion-card-subtitle>
+        <ion-card-title>{{ deal.title }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        {{ deal.content }}
+      </ion-card-content>
+      <ion-chip class="rechtsunten" color="primary">
+        <ion-label>{{ deal.price_new }}</ion-label>
+        <ion-badge color="medium">{{ deal.price_old }}</ion-badge>
+      </ion-chip>
+    </ion-card>
   </div>
+
+</div>
 
   <div class="container">
     <a (click)="getMyPosition()">Meine Position</a>
+    <br><br>
   </div>
 </ion-content>

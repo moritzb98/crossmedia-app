@@ -2,25 +2,20 @@
     display:flex;
     flex-direction: row; /* Standardwert */
     //padding: 1px;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 .flex-item{
-    margin-top: 15px;
-    height: 280px;
-}
-.left{
-    margin-right: 4px;
-    margin-left: 10px;
-}
-
-.right{
-    margin-left: 4px;
-    margin-right: 10px;
+    margin: 15px 0 0 0;
+    height: 300px;
+    width: 46%;
 }
 
 .rechtsunten{
     align-items: flex-end!important;
-    position:absolute;
+    position: relative;
     overflow: unset;
+    float: right;
 }
 
 .mittig{
@@ -51,6 +46,8 @@ ion-card-subtitle{
 ion-card-content{
     font-size: 12px!important;
     padding-bottom: 10px !important;
+    height: 45px;
+    overflow: overlay;
 }
 
 ion-chip{
