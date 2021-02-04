@@ -11,6 +11,16 @@
     width: 46%;
 }
 
+img{
+    max-height: 100%;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
 .rechtsunten{
     align-items: flex-end!important;
     position: relative;
@@ -21,6 +31,10 @@
 .mittig{
     text-align: center!important;
     height: 135px;
+<<<<<<< HEAD
+=======
+    position: relative;
+>>>>>>> master
 }
 
 ion-card-header{
@@ -46,6 +60,12 @@ ion-card-subtitle{
 
 ion-card-content{
     font-size: 12px!important;
+<<<<<<< HEAD
+=======
+    padding-bottom: 10px !important;
+    height: 45px;
+    overflow: overlay;
+>>>>>>> master
     padding-bottom: 5px !important;
     height: 30px;
     overflow: hidden;
