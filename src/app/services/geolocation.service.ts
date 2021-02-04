@@ -59,7 +59,7 @@ export class GeolocationService {
     let num: number;
     let stop = true;
     this.geofence.forEach(el => {
-      num = (Math.pow(Math.pow(this.lat - el.lat, 2), 0.5) + Math.pow(Math.pow(this.long - el.lng, 2), 0.5));
+      num = (Math.pow(Math.pow(this.lat - el.lat, 2), 0.5) + Math.pow(Math.pow(this.long - el.long, 2), 0.5));
       //alert('Store: ' + el.store + ' - ' + num);
       if (num < 0.001 && stop) {
         //Geofence betreten  
@@ -74,6 +74,16 @@ export class GeolocationService {
       }
     });
 
+  }
+
+  watchBackground(lat, long){
+    this.lat = lat;
+    this.long = long;
+    if (!this.passedGeofence){
+      this.compareCoords();
+    } else {
+      this.checkFenceleaved();
+    }
   }
 
   checkFenceleaved() {
