@@ -1,6 +1,8 @@
 import { PushService } from './push.service';
 import { Injectable } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Store, StoreServiceService } from './store-service.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,25 +11,14 @@ export class GeolocationService {
 
   lat: number;
   long: number;
-  geofence = [];
+  private geofence: Observable<Store[]>;
   passedGeofence: boolean;
   passedStore;
 
-  constructor(private geolocation: Geolocation, private pushService: PushService) {
+  constructor(private geolocation: Geolocation, private pushService: PushService, private storeService: StoreServiceService) {
       this.lat = 0;
       this.long = 0;
-      this.geofence = [
-        {
-          store: 'Rewe',
-          lat: 49.2264,
-          long: 9.149
-        },
-        {
-          store: 'Aldi',
-          lat: 42.111,
-          long: 8.555
-        }
-      ];
+      this.geofence = this.storeService.getStores();
       this.passedGeofence = false;
    }
 
@@ -59,19 +50,21 @@ export class GeolocationService {
     let num: number;
     let stop = true;
     this.geofence.forEach(el => {
-      num = (Math.pow(Math.pow(this.lat - el.lat, 2), 0.5) + Math.pow(Math.pow(this.long - el.long, 2), 0.5));
-      //alert('Store: ' + el.store + ' - ' + num);
-      if (num < 0.001 && stop) {
-        //Geofence betreten  
-        this.passedGeofence = true;
-        this.passedStore = el;
-        stop = false;
-        this.pushService.sendPush2(el.store);
-      } else if (num > 0.001 && stop) {
-        // Geofence nicht betreten
-        this.passedGeofence = false;
-        this.passedStore = {};
-      }
+      el.forEach(element => {
+        num = (Math.pow(Math.pow(this.lat - element.lat, 2), 0.5) + Math.pow(Math.pow(this.long - element.long, 2), 0.5));
+        //alert('Store: ' + el.store + ' - ' + num);
+        if (num < 0.001 && stop) {
+          //Geofence betreten  
+          this.passedGeofence = true;
+          this.passedStore = element;
+          stop = false;
+          this.pushService.sendPush2(element.name);
+        } else if (num > 0.001 && stop) {
+          // Geofence nicht betreten
+          this.passedGeofence = false;
+          this.passedStore = {};
+        }
+      });
     });
 
   }
@@ -99,8 +92,10 @@ export class GeolocationService {
   getPosition() {
     alert('Deine Position: ' + this.lat + ', ' + this.long);
     this.geofence.forEach(el => {
-      let num = (Math.pow(Math.pow(this.lat - el.lat, 2), 0.5) + Math.pow(Math.pow(this.long - el.lng, 2), 0.5));
-      alert('Store: ' + el.store + ' - ' + num);
+      el.forEach(element => {
+        let num = (Math.pow(Math.pow(this.lat - element.lat, 2), 0.5) + Math.pow(Math.pow(this.long - element.long, 2), 0.5));
+        alert('Store: ' +element.name + ' - ' + num);
+      });
     });
   }
 
