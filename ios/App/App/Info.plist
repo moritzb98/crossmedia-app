@@ -2,20 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSMotionUsageDescription</key>
-	<string>MOTION_USAGE_DESCRIPTION</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>LOCATION_WHEN_IN_USE_USAGE_DESCRIPTION</string>
-	<key>CFBundleGetInfoString</key>
-	<string></string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>LOCATION_ALWAYS_AND_WHEN_IN_USE_USAGE_DESCRIPTION</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>crossmedia-app</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleGetInfoString</key>
+	<string></string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -52,16 +46,25 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>To Take Photos and Video</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>LOCATION_ALWAYS_AND_WHEN_IN_USE_USAGE_DESCRIPTION</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>LOCATION_ALWAYS_USAGE_DESCRIPTION</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>LOCATION_WHEN_IN_USE_USAGE_DESCRIPTION</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>To Record Audio With Video</string>
+	<key>NSMotionUsageDescription</key>
+	<string>MOTION_USAGE_DESCRIPTION</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Store camera photos to camera</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>To Pick Photos from Library</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>fetch</string>
+		<string>location</string>
+		<string>processing</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
