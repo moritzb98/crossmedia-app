@@ -19,7 +19,7 @@
     <ion-card *ngFor="let deal of (deals | async)" class="flex-item">
       <ion-card-header>
         <div class="mittig" >
-          <img [src]="deal.img" height="135px">
+          <img [src]="deal.img" height="auto">
         </div>
         <ion-card-subtitle>{{ deal.category }}</ion-card-subtitle>
         <ion-card-title>{{ deal.title }}</ion-card-title>
