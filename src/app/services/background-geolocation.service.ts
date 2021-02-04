@@ -46,6 +46,14 @@ export class BackgroundGeolocationService {
       console.log('[providerchange] - ', event.enabled, event.status, event.gps);
     });
 
+    BackgroundGeolocation.watchPosition((location) => {
+      console.log("[watchPosition] -", location);
+    }, (errorCode) => {
+      console.log("[watchPosition] ERROR -", errorCode);
+    }, {
+      interval: 1000
+    });
+
     // 2.  Configure the plugin with #ready
     BackgroundGeolocation.ready({
       reset: false,
