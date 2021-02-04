@@ -7,7 +7,7 @@
 }
 .flex-item{
     margin: 15px 0 0 0;
-    height: 300px;
+    height: 280px;
     width: 46%;
 }
 
@@ -20,6 +20,7 @@
 
 .mittig{
     text-align: center!important;
+    height: 135px;
 }
 
 ion-card-header{
@@ -45,9 +46,13 @@ ion-card-subtitle{
 
 ion-card-content{
     font-size: 12px!important;
-    padding-bottom: 10px !important;
-    height: 45px;
-    overflow: overlay;
+    padding-bottom: 5px !important;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 170px;
+    display: block;
 }
 
 ion-chip{
