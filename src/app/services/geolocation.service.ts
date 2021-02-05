@@ -59,6 +59,7 @@ export class GeolocationService {
           this.passedStore = element;
           stop = false;
           this.pushService.sendPush2(element.name);
+          console.log(element.name);
         } else if (num > 0.001 && stop) {
           // Geofence nicht betreten
           this.passedGeofence = false;
