@@ -11,6 +11,29 @@
     </ion-toolbar>
   </ion-header>
 
+  <h3> Dein Account</h3>
+
+  <ion-list lines="full" class="ion-no-margin">
+    <ion-list-header lines="full">
+      <ion-label>
+        Ändere hier wichtige Einstellungen:
+      </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Benutzername</ion-label>
+      <ion-input placeholder="Mind. 8 Zeichen lang"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">E-Mail Adresse</ion-label>
+      <ion-input placeholder="xyz@xyz.de"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Dein Standort</ion-label>
+      <ion-input placeholder="PLZ oder Ort"></ion-input>
+    </ion-item>
+  </ion-list>
+
+
   <h3> Standortabfrage</h3>
   
   <ion-segment (ionChange)="segmentChanged($event)" color="secondary">
@@ -35,28 +58,6 @@
       <ion-label>Verweigern</ion-label>
     </ion-segment-button>
   </ion-segment>
-
-  <h3> Dein Account</h3>
-
-  <ion-list lines="full" class="ion-no-margin">
-    <ion-list-header lines="full">
-      <ion-label>
-        Ändere hier wichtige Einstellungen:
-      </ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Benutzername</ion-label>
-      <ion-input placeholder="Mind. 8 Zeichen lang"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="fixed">E-Mail Adresse</ion-label>
-      <ion-input placeholder="xyz@xyz.de"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="fixed">Dein Standort</ion-label>
-      <ion-input placeholder="PLZ oder Ort"></ion-input>
-    </ion-item>
-  </ion-list>
 
 
 
