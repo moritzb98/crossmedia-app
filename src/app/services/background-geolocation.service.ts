@@ -51,7 +51,7 @@ export class BackgroundGeolocationService {
     }, (errorCode) => {
       console.log("[watchPosition] ERROR -", errorCode);
     }, {
-      interval: 1000
+      interval: 5000
     });
 
     // 2.  Configure the plugin with #ready
