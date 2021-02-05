@@ -1,3 +1,56 @@
-<p>
-  einstellungen works!
-</p>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Ändere Deine Einstellungen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Ändere Deine Einstellungen!</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <h3> Standortabfrage</h3>
+  
+  <ion-segment (ionChange)="segmentChanged($event)" color="secondary">
+    <ion-segment-button value="standard">
+      <ion-label>Immer</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="hybrid">
+    <h4>Beim Benutzen <br>der App</h4>
+    </ion-segment-button>
+    <ion-segment-button value="sat">
+      <ion-label>Nie</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <h3> Push-Benachrichtigungen</h3>
+  
+  <ion-segment (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="friends">
+      <ion-label>Zulassen</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="enemies">
+      <ion-label>Verweigern</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="bottom">
+      <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="start">
+      <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+    <ion-fab-list side="end">
+      <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

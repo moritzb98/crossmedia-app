@@ -2,6 +2,8 @@ import { SupermaerktePage } from './../supermaerkte/supermaerkte.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import { EinstellungenComponent } from './../einstellungen/einstellungen.component';
+
 
 const routes: Routes = [
   {
@@ -27,6 +29,10 @@ const routes: Routes = [
       {
         path: 'supermaerkte',
         loadChildren: () => import('../supermaerkte/supermaerkte.module').then( m => m.SupermaerktePageModule)
+      },
+      {
+        path: 'einstellungen',
+        component: EinstellungenComponent
       },
       {
         path: '',
