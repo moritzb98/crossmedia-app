@@ -1,19 +1,32 @@
 img{
-    width: 28px;
+    width: 22px;
     height: auto;
+}
+
+.background{
+  background-color: #F7F7F5;
 }
 
 div.kreis {
     width: 90px;
     height: 90px;
     border-radius: 50px;
-    background-color: #EBEBEB;
-    border: 5px solid rgb(209, 19, 19); 
+    background-color: #D08C66;
+    //border: 5px solid rgb(209, 19, 19); 
     z-index: 1000000;
-
   }
 
+
+  div.kreisklein {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: #E1B199;
+    z-index: 1000000;
+    margin: 50px;
+
+  }
   .selected{
-    width: 38px;
+    width: 40px;
     height: auto;
   }
