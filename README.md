@@ -7,8 +7,6 @@
 4. Neuste Node.js Version installieren: [nodejs.org](https://nodejs.org/en/download/)
 5. Xcode installieren: https://apps.apple.com/us/app/xcode/id497799835?mt=12
 
-
-
 ## Run on Development
 1. Im Terminal ins Verzeichnis `crossmedia-app` navigieren.
 2. `npm install`im Terminal ausführen.
