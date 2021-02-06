@@ -5,6 +5,8 @@ img{
 
 .background{
   background-color: #F7F7F5;
+  position: relative;
+  // height: 70px;
 }
 
 div.kreis {
@@ -29,4 +31,26 @@ div.kreis {
   .selected{
     width: 40px;
     height: auto;
+  }
+
+  ion-tab-bar{
+    background: none;
+    --border: none;
+  }
+
+  .background-green{
+    display: block;
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    background: #778b84;
+    bottom: 0;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+  }
+
+  ion-tab-bar{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
   }
