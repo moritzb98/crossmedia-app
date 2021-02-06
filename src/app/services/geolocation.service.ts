@@ -47,20 +47,20 @@ export class GeolocationService {
   }
 
   compareCoords() {
-    let num: number;
+    let dist: number;
     let stop = true;
     this.geofence.forEach(el => {
       el.forEach(element => {
-        num = (Math.pow(Math.pow(this.lat - element.lat, 2), 0.5) + Math.pow(Math.pow(this.long - element.long, 2), 0.5));
-        //alert('Store: ' + el.store + ' - ' + num);
-        if (num < 0.001 && stop) {
+        dist = (Math.pow(Math.pow(this.lat - element.lat, 2), 0.5) + Math.pow(Math.pow(this.long - element.long, 2), 0.5));
+        //alert('Store: ' + el.store + ' - ' + dist);
+        if (dist < 0.001 && stop) {
           //Geofence betreten  
           this.passedGeofence = true;
           this.passedStore = element;
           stop = false;
           this.pushService.sendPush2(element.name);
           console.log(element.name);
-        } else if (num > 0.001 && stop) {
+        } else if (dist > 0.001 && stop) {
           // Geofence nicht betreten
           this.passedGeofence = false;
           this.passedStore = {};
@@ -81,9 +81,9 @@ export class GeolocationService {
   }
 
   checkFenceleaved() {
-      let num: number;
-      num = (this.lat - this.passedStore.lat) + (this.long - this.passedStore.long);
-      if (num > 0.001) {
+      let dist: number;
+      dist = (this.lat - this.passedStore.lat) + (this.long - this.passedStore.long);
+      if (dist > 0.001) {
         // Geofence verlassen
         this.passedGeofence = false;
         this.passedStore = {};
@@ -94,8 +94,8 @@ export class GeolocationService {
     alert('Deine Position: ' + this.lat + ', ' + this.long);
     this.geofence.forEach(el => {
       el.forEach(element => {
-        let num = (Math.pow(Math.pow(this.lat - element.lat, 2), 0.5) + Math.pow(Math.pow(this.long - element.long, 2), 0.5));
-        alert('Store: ' +element.name + ' - ' + num);
+        let dist = (Math.pow(Math.pow(this.lat - element.lat, 2), 0.5) + Math.pow(Math.pow(this.long - element.long, 2), 0.5));
+        alert('Store: ' +element.name + ' - ' + dist);
       });
     });
   }
