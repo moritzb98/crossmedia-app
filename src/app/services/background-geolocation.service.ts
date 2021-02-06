@@ -53,6 +53,7 @@ export class BackgroundGeolocationService {
 
     BackgroundGeolocation.watchPosition((location) => {
       console.log("[watchPosition] -", location);
+      this.geoService.watchBackground(location.coords.latitude, location.coords.longitude);
     }, (errorCode) => {
       console.log("[watchPosition] ERROR -", errorCode);
     }, {

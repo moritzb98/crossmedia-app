@@ -14,12 +14,14 @@ export class GeolocationService {
   private geofence: Observable<Store[]>;
   passedGeofence: boolean;
   passedStore;
+  firstInit: boolean;
 
   constructor(private geolocation: Geolocation, private pushService: PushService, private storeService: StoreServiceService) {
       this.lat = 0;
       this.long = 0;
       this.geofence = this.storeService.getStores();
-      this.passedGeofence = false;
+      this.passedGeofence = true;
+      this.firstInit = true;
    }
 
    /******************************************************* 
@@ -59,8 +61,10 @@ export class GeolocationService {
     ********************************************************/
 
   compareCoords() {
+    console.log("COMPARE");
     let dist: number;
     let stop = true;
+    this.firstInit = false;
     this.geofence.forEach(el => {
       el.forEach(element => {
         dist = (Math.pow(Math.pow(this.lat - element.lat, 2), 0.5) + Math.pow(Math.pow(this.long - element.long, 2), 0.5));
@@ -71,9 +75,10 @@ export class GeolocationService {
           this.passedStore = element;
           stop = false;
           this.pushService.sendPush2(element.name);
-          console.log(element.name);
+          console.log("PUSH", element.name);
         } else if (dist > 0.001 && stop) {
           // Geofence nicht betreten
+          console.log("NO-PUSH");
           this.passedGeofence = false;
           this.passedStore = {};
         }
@@ -89,8 +94,10 @@ export class GeolocationService {
     ********************************************************/
 
   watchBackground(lat, long){
+    console.log("WATCH");
     this.lat = lat;
     this.long = long;
+    this.passedGeofence = true;
     if (!this.passedGeofence){
       this.compareCoords();
     } else {
@@ -105,13 +112,18 @@ export class GeolocationService {
     ********************************************************/
 
   checkFenceleaved() {
-      let dist: number;
-      dist = (this.lat - this.passedStore.lat) + (this.long - this.passedStore.long);
-      if (dist > 0.001) {
-        // Geofence verlassen
-        this.passedGeofence = false;
-        this.passedStore = {};
-    }
+      if(this.firstInit){
+        this.compareCoords();
+      }else{
+          let dist: number;
+          dist = (this.lat - this.passedStore.lat) + (this.long - this.passedStore.long);
+          if (dist > 0.001) {
+            // Geofence verlassen
+            this.passedGeofence = false;
+            this.passedStore = {};
+        }
+      }
+      
   }
 
   /******************************************************* 
