@@ -18,9 +18,5 @@ export class Tab1Page implements OnInit{
     this.deals = this.dealServcie.getDeals();
   }
 
-  test(){
-    console.log(this.deals);
-  }
-
 
 }

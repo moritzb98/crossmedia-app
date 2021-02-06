@@ -22,6 +22,12 @@ export class GeolocationService {
       this.passedGeofence = true;
    }
 
+   /******************************************************* 
+     * 
+     *  Init Geolocation and getPosition / watchPosition
+     * 
+    ********************************************************/
+
   initGeolocation(){
     this.geolocation.getCurrentPosition().then((resp) => {
         this.lat =  resp.coords.latitude;
@@ -45,6 +51,12 @@ export class GeolocationService {
         }
     });
   }
+
+  /******************************************************* 
+     * 
+     *  Check if currentPosition is in Geofence
+     * 
+    ********************************************************/
 
   compareCoords() {
     let dist: number;
@@ -70,6 +82,12 @@ export class GeolocationService {
 
   }
 
+  /******************************************************* 
+     * 
+     *  Watch Position if App is inactive
+     * 
+    ********************************************************/
+
   watchBackground(lat, long){
     this.lat = lat;
     this.long = long;
@@ -80,6 +98,12 @@ export class GeolocationService {
     }
   }
 
+  /******************************************************* 
+     * 
+     *  Check if Fence is leaved
+     * 
+    ********************************************************/
+
   checkFenceleaved() {
       let dist: number;
       dist = (this.lat - this.passedStore.lat) + (this.long - this.passedStore.long);
@@ -89,6 +113,12 @@ export class GeolocationService {
         this.passedStore = {};
     }
   }
+
+  /******************************************************* 
+     * 
+     *  Function for testing
+     * 
+    ********************************************************/
 
   getPosition() {
     alert('Deine Position: ' + this.lat + ', ' + this.long);
