@@ -1,13 +1,23 @@
 .right{
     margin-left: 0px;
-    margin-right: 10px;
+    margin-right: 0px;
+    margin-top: 0px;
     float: left;
+    margin-bottom: 10px;
+}
+
+.markt{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    
+    margin-bottom: 10px; 
 }
 
 .left{
     margin-left: 0px;
     margin-right: 0px; 
-    float: left;
+    float: right;
 }
 
 .button{
@@ -22,13 +32,23 @@ ion-title{
 
 ion-card-content{
     color: black;
-    font-size: 16px;    
+    font-size: 20px;    
     font-family: 'Roboto', sans-serif; 
     margin-top: 0px;
 }
 
 ion-card{
-    --ion-card-background: white;
+    --ion-card-background: #F0EFEB;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-color: #D9D8CC;
+    border-style: solid;
+}
+
+ion-card-subtitle{
+    margin-left: 120px;
+    margin-top: 0px;
+    float: right;
 }
 
 h1{
@@ -37,3 +57,21 @@ h1{
    float: left;
 
 }
+.settings{
+    z-index: 1;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.centered-element{
+    z-index: 1;
+    text-align: left;
+    margin-top: 20px; 
+    margin-left: 20px;
+    float: initial;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }

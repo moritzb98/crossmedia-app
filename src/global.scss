@@ -53,6 +53,14 @@ ion-tab-bar {
   
 }
 
+ion-card{
+    --ion-card-background: #F0EFEB;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-color: #D9D8CC;
+    border-style: solid;
+}
+
 ion-header{
     background:#778C85 !important;
 }
