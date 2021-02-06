@@ -1,3 +1,5 @@
+<!-- Header Bereich-->
+
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
@@ -8,103 +10,74 @@
     </ion-toolbar>
   </ion-header>
 
-  
+  <!-- Location Anzeige-->
   <div class="container">
     <img src= "./assets/pin.png" width="40px">
-    <h1>Du befindet Dich in Heilbronn</h1>
+    <h1>Du befindest Dich in Heilbronn</h1>
   </div>
 
+  <!-- Inhalt der Karten, Aldi Süd-->
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Nur 5,3km von dir entfernt:</ion-card-subtitle>
-      <div class="right" >
-        <img class="right" src= "./assets/aldi.png" height="135px">
+      <div class="flex-item">Nur 5,3km von dir entfernt:</div>
+      <div class="flex-container">
+        <div class="flex-image">
+          <img class="right" src= "./assets/aldi.png" height="155px"> 
+        </div>
+        <div class="flex-description">
+          Aldi Süd
+          <br> <b>Adresse:</b> Musterstr.1, 74076 Heilbronn
+          <br> <b>Öffnungszeiten:</b> Montag-Samstag, 07:30-19:30 Uhr
+          <br> <b>Telefon:</b> 01234/45674
+        </div>
       </div>
-    </ion-card-header>
-  
-    <ion-card-content>
-       Aldi Süd
-        Musterstr.1, Heilbronn
-        Öffnungszeiten: 07:30-19:30Uhr (Mo-Sa)
-     
-        <div class="right" >
+      <div class="button" >
         <button type="button" class="btn btn-primary">Zu den Angeboten</button>
       </div>
-    </ion-card-content>
-  </ion-card>
-    
-
-
-
-  
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Nur 7,4km von dir entfernt:</ion-card-subtitle>
-      <div class="right" >
-        <img class="right" src= "./assets/Rewe.png" height="135px">
-      </div>
     </ion-card-header>
-  
-    <ion-card-content>
-
-      Rewe Markt 
-      <br> Hauptstr.1, Heilbronn
-      Öffnungszeiten: 07:30-19:30Uhr (Mo-Sa)
-      <div class="right" >
-        <button type="button">Zu den Angeboten</button>
-      </div>
-    </ion-card-content>
   </ion-card>
+
+<!-- Rewe-->
 
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Nur 9,8km von dir entfernt:</ion-card-subtitle>
-      <div class="right" >
-        <img class="right" src= "./assets/2logoedeka.png" height="135px">
+      <div class="flex-item">Nur 7,4km von dir entfernt:</div>
+      <div class="flex-container">
+        <div class="flex-image">
+          <img class="right" src= "./assets/Rewe.png" height="155px"> 
+        </div>
+        <div class="flex-description">
+          Rewe
+          <br> <b>Adresse:</b> Musterstr.1, 74076 Heilbronn
+          <br> <b>Öffnungszeiten:</b> Montag-Samstag, 07:30-19:30 Uhr
+          <br> <b>Telefon:</b> 01234/45674
+        </div>
+      </div>
+      <div class="button" >
+        <button type="button" class="btn btn-primary">Zu den Angeboten</button>
       </div>
     </ion-card-header>
-  
-    <ion-card-content>
-      Edeka Südwest <br> Hauptallee 1, Heilbronn
-      Öffnungszeiten: 07:30-19:30Uhr (Mo-Sa)
-      <div class="right" >
-        <button type="button">Zu den Angeboten</button>
-      </div>
-    </ion-card-content>
   </ion-card>
 
+  <!-- Edeka-->
   <ion-card>
     <ion-card-header>
-      <ion-card-subtitle>Nur 11,2km von dir entfernt:</ion-card-subtitle>
-      <div class="right" >
-        <img class="right" src= "./assets/LidlLogo.png" height="135px" >
+      <div class="flex-item">Nur 7,4km von dir entfernt:</div>
+      <div class="flex-container">
+        <div class="flex-image">
+          <img class="right" src= "./assets/edekalogo.png" height="155px"> 
+        </div>
+        <div class="flex-description">
+          Edeka
+          <br> <b>Adresse:</b> Musterstr.1, 74076 Heilbronn
+          <br> <b>Öffnungszeiten:</b> Montag-Samstag, 07:30-19:30 Uhr
+          <br> <b>Telefon:</b> 01234/45674
+        </div>
+      </div>
+      <div class="button" >
+        <button type="button" class="btn btn-primary">Zu den Angeboten</button>
       </div>
     </ion-card-header>
-  
-    <ion-card-content>
-      Lidl <br> Mustermannstr.1, Heilbronn.
-      Öffnungszeiten: 07:30-19:30Uhr (Mo-Sa)
-      <div class="right" >
-        <button type="button">Zu den Angeboten</button>
-      </div>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>Nur 14,4km von dir entfernt:</ion-card-subtitle>
-      <div class="right" >
-        <img class="right" src= "./assets/logonetto.png" height="135px">
-      </div>
-    </ion-card-header>
-  
-    <ion-card-content>
-      Netto Markendiscount <br> Talstr.1, Heilbronn.
-      Öffnungszeiten: 07:30-19:30Uhr (Mo-Sa)
-      <div class="right" >
-        <button type="button">Zu den Angeboten</button>
-      </div>
-    </ion-card-content>
   </ion-card>
 
 </ion-content>
