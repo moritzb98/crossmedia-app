@@ -1,27 +1,10 @@
-.right{
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    float: left;
-    margin-bottom: 10px;
-}
-
-.markt{
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 0px;
-    
-    margin-bottom: 10px; 
-}
-
-.left{
-    margin-left: 0px;
-    margin-right: 0px; 
-    float: right;
-}
-
 .button{
-    color: black;
+    margin-left:10px;
+    margin-right: 0px;
+    margin-top: 15px;
+    border-color: #D9D8CC;
+    border-style: solid;
+   justify-content: center;
 }
 
 ion-title{
@@ -30,11 +13,34 @@ ion-title{
     font-family: 'Roboto', sans-serif;
 }
 
-ion-card-content{
+.flex-description{
     color: black;
-    font-size: 20px;    
+    font-size: 14px;    
     font-family: 'Roboto', sans-serif; 
-    margin-top: 0px;
+    margin-top: 15px;  
+    margin-left: 10px;
+    width: 200px;
+
+}
+
+.flex-container{
+    display: flex;
+}
+
+.flex-item{
+    margin-left: 10px;
+    margin-top: 5px;  
+    position: center;
+    font-family: 'Helevetica';
+    font-size: 18px;
+}
+
+.flex-image{
+    margin-top: 15px;  
+    margin-left: 10px;
+    width: 200px;
+    object-fit: cover;
+    
 }
 
 ion-card{
@@ -43,12 +49,6 @@ ion-card{
     margin-right: 20px;
     border-color: #D9D8CC;
     border-style: solid;
-}
-
-ion-card-subtitle{
-    margin-left: 120px;
-    margin-top: 0px;
-    float: right;
 }
 
 h1{
@@ -63,15 +63,13 @@ h1{
     margin-top: 20px;
 }
 
-.centered-element{
-    z-index: 1;
-    text-align: left;
-    margin-top: 20px; 
-    margin-left: 20px;
-    float: initial;
-}
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
     }
+
+ .icon{
+     margin-left: 10px;
+    vertical-align: middle;
+ }   
