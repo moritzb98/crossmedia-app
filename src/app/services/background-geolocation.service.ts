@@ -25,9 +25,14 @@ export class BackgroundGeolocationService {
 
   constructor(private geoService: GeolocationService) { }
 
-   // Like any Cordova plugin, you must wait for Platform.ready() before referencing the plugin.
+
    configureBackgroundGeolocation() {
-    // 1.  Listen to events.
+    
+    /******************************************************* 
+     * 
+     *  Listen to Events and call watchBackground of Geolcoation-Service
+     * 
+    ********************************************************/
     BackgroundGeolocation.onLocation(location => {
       console.log('[location] - ', location.coords.longitude, location.coords.latitude);
       this.geoService.watchBackground(location.coords.latitude, location.coords.longitude);
@@ -54,7 +59,11 @@ export class BackgroundGeolocationService {
       interval: 5000
     });
 
-    // 2.  Configure the plugin with #ready
+    /******************************************************* 
+     * 
+     *  Configuration of the Plugin
+     * 
+    ********************************************************/
     BackgroundGeolocation.ready({
       reset: false,
       debug: false,
@@ -67,7 +76,6 @@ export class BackgroundGeolocationService {
     }, (state) => {
       //console.log('[ready] BackgroundGeolocation is ready to use');
       if (!state.enabled) {
-        // 3.  Start tracking.
         BackgroundGeolocation.start();
       }
     });

@@ -1,3 +1,4 @@
+import { AngebotDetailComponent } from './../angebot-detail/angebot-detail.component';
 import { SupermaerktePage } from './../supermaerkte/supermaerkte.page';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -33,6 +34,10 @@ const routes: Routes = [
       {
         path: 'einstellungen',
         component: EinstellungenComponent
+      },
+      {
+        path: 'tab1/:id',
+        component: AngebotDetailComponent
       },
       {
         path: '',
