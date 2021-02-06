@@ -19,7 +19,7 @@ export class GeolocationService {
       this.lat = 0;
       this.long = 0;
       this.geofence = this.storeService.getStores();
-      this.passedGeofence = true;
+      this.passedGeofence = false;
    }
 
    /******************************************************* 

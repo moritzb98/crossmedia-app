@@ -116,7 +116,7 @@ export class PushService {
       };
       this.http.post('https://onesignal.com/api/v1/notifications', this.pushMessage2, this.httpOptions2)
       .subscribe(data => {
-        console.log(data);
+        console.log("PUSH GESENDET " + data);
       });
     }
 

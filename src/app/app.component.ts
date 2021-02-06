@@ -41,9 +41,9 @@ export class AppComponent {
       this.backgeo.configureBackgroundGeolocation();
 
       //Trigger One Signal if is not in Browser
-      if(this.platform.is('cordova')){
+      //if(this.platform.is('cordova')){
         this.setupPush();
-      }
+      //}
     });
   }
 
