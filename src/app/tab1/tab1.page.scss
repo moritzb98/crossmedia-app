@@ -26,10 +26,6 @@ h1{
     margin-top: 20px;
 }
 
-.text{
-    margin-top: 20px;
-}
-
 img{
     max-height: 100%;
     position: absolute;
@@ -108,3 +104,6 @@ ion-badge{
     text-decoration: line-through;
 }
 
+.settings img{
+    position: relative;
+}
