@@ -51,6 +51,12 @@ export class PushService {
     }
   }
 
+  /******************************************************* 
+     * 
+     *  Register Push-Notification and add Event-Listener
+     * 
+    ********************************************************/
+
   private registerPush() {
       // Request permission to use push notifications
       // iOS will prompt user and return if they granted permission or not
@@ -116,9 +122,10 @@ export class PushService {
 
     /******************************************************* 
      * 
-     *  Push Notification to Browser and toast
+     *  Push Notification to Browser - Firebase
      * 
     ********************************************************/
+
     requestPermission() {
       this.afMessaging.requestToken
         .subscribe(
@@ -176,6 +183,12 @@ export class PushService {
       });
 
     }
+
+    /******************************************************* 
+     * 
+     *  Show Toast in App
+     * 
+    ********************************************************/
 
     async presentToast(msg) {
       const toast = await this.toastController.create({
