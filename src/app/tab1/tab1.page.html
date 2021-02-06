@@ -16,7 +16,7 @@
   <div>
 
   <div class="flex-container">
-    <ion-card *ngFor="let deal of (deals | async)" class="flex-item">
+    <ion-card *ngFor="let deal of (deals | async)" class="flex-item" [routerLink]="['/tabs/tab1', deal.id]">
       <ion-card-header>
         <div class="mittig" >
           <img [src]="deal.img" height="auto">

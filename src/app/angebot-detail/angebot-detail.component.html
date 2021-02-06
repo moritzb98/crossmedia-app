@@ -1,0 +1,30 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-title>
+      Angebote
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Angebote</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- So kannst du die Daten bekommen -->
+  <p>Titel: {{deal.title}}</p>
+  <p>Inhalt: {{deal.content}}</p>
+  <p>Laden: {{deal.store}}</p>
+  <p>Neuer Preis: {{deal.price_new}}</p>
+  <p>Alter Preis: {{deal.price_old}}</p>
+  <p>Kategorie: {{deal.category}}</p>
+  <img [src]="deal.img" height="auto">
+
+  <!-- Falls du einen Zurück-Button brauchst (geht aber ja auch über die Navi) -->
+  <a href="/tabs/tab1">Zurück zur Übersicht</a>
+
+  <!-- Hier kann darunter der Inhalt rein -->
+  
+</ion-content>
