@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./einstellungen.component.scss'],
 })
 export class EinstellungenComponent implements OnInit {
+  constructor() { }
+  rootPage: any;
   segmentChanged(ev: any) {
     console.log('Segment changed', ev);
   }
-  constructor() { }
 
   ngOnInit() {}
 
