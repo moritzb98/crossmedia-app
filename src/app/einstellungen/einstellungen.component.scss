@@ -20,9 +20,12 @@ ion-title{
     }
 
 h1{
-        color: black;
-       font-size: 20px;
-       float: left;
+    color: black;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    float: left;
+    font-family: 'Helvetica';
     
     }  
     
@@ -44,8 +47,20 @@ h4{
     font-family: 'Helvetica';
 }
 
-ion-fab-button{
-    background: white ;
-    border-radius: 50%;    
-    color: #FFF;
-} 
+.icon{
+    justify-content: right;
+
+}   
+.flex-container{
+    display: flex;
+}
+
+.namecomponent{
+    color: black;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    margin-left: 10px;
+    font-size: 20px;
+    float: left;
+    font-family: 'Helvetica';
+}
