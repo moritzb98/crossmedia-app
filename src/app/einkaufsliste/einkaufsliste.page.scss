@@ -4,6 +4,11 @@
     margin-top: 20px;
 }    
 
+.color{
+background-color: red !important;
+background: rebeccapurple;
+}
+
 ion-title{
     color: white;
     font-size: 22px;    
@@ -11,18 +16,23 @@ ion-title{
 }
 
 ion-checkbox{
+    size: 0px;
     color: #F0EFEB;
     border-color: #D9D8CC;
     border-width: 25px;
+    --checkmark-color: #FFFFFF;
+    --border-color-checked: #E4E4DB ;
+    --background-checked: #83B297;
 }
 
-.entry.isChecked{
-    color:blueviolet;
 
-}
-
-.additem{
-    color: white;
-    font-size: 25px;    
-    font-family: 'Roboto', sans-serif;
-}
+h1{
+        color: #707070;
+        margin-top: 0px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Helvetica';
+        
+        }  
+        

@@ -19,7 +19,7 @@ export class EinkaufslistePage implements OnInit {
 
   additem() {
     this.form.push({val: this.itemAdd, isChecked: false});
-    this.itemAdd = "";
+    this.itemAdd = '';
   }
 
 }
