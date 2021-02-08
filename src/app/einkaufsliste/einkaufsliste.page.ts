@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EinkaufslistePage implements OnInit {
   public form = [
-    { val: 'Pepperoni', isChecked: true },
-    { val: 'Sausage', isChecked: false },
-    { val: 'Mushroom', isChecked: false }
+    { val: 'Äpfel', isChecked: true },
+    { val: 'Vollkornnudeln', isChecked: false },
   ];
   itemAdd;
   constructor() { }
