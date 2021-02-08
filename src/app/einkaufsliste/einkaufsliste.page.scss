@@ -1,0 +1,28 @@
+.settings{
+    z-index: 1;
+    text-align: right;
+    margin-top: 20px;
+}    
+
+ion-title{
+    color: white;
+    font-size: 22px;    
+    font-family: 'Roboto', sans-serif;
+}
+
+ion-checkbox{
+    color: #F0EFEB;
+    border-color: #D9D8CC;
+    border-width: 25px;
+}
+
+.entry.isChecked{
+    color:blueviolet;
+
+}
+
+.additem{
+    color: white;
+    font-size: 25px;    
+    font-family: 'Roboto', sans-serif;
+}
