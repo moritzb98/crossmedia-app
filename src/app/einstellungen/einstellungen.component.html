@@ -22,6 +22,22 @@
     <h1>Du befindest Dich in Heilbronn</h1>
   </div>
 
+
+<!--PopUp-->
+
+<button data-modal-target="#popup">Ändern</button>
+<div class="popup active" id="popup">
+  <div class="popup-header">
+    <div class="title"> Beispiel Popup</div>
+    <button data-close-button class="close-popup">&times;</button>
+  </div>
+  <div class="popup-body">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quis pariatur, doloribus iure error distinctio deleniti rerum asperiores alias repellendus!
+  </div>
+</div>
+<div id="overlay"></div>
+
+
   <!--Cards-->
 
   <ion-card>
@@ -29,9 +45,6 @@
       <div class="flex-container">  
         <img class="icon" src= "./assets/hilfe.png" height="30">
      <div class="namecomponent"> Hilfe </div>
-     <div class="popup" onclick="myFunction()">Click me!
-      <span class="popuptext" id="myPopup">Popup text...</span>
-    </div>
     </div>
     </ion-card-header>
   </ion-card>

@@ -66,8 +66,69 @@ h4{
 }
 
 .popup {
-    position: absolute;
-    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: inline-block;
     cursor: pointer;
     z-index: 1000;
+    background-color: blanchedalmond;
+    width: 500px;
+    max-width: 80%;
+}
+
+.popup.active{
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+.popup-header{
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.popup-header .title{
+    font-size: 1.25rem;
+    font-weight: bold;
+
+}
+
+.popup-header .close-popup{
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.popup-body{
+    padding: 10px 15px;
+}
+
+#overlay{
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: blanchedalmond;
+    pointer-events: none;
+}
+
+#overlay.active{
+    opacity: 1;
+    pointer-events: all;
 }
