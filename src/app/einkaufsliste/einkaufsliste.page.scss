@@ -4,15 +4,20 @@
     margin-top: 20px;
 }    
 
-.color{
-background-color: red !important;
-background: rebeccapurple;
-}
-
 ion-title{
     color: white;
     font-size: 22px;    
     font-family: 'Roboto', sans-serif;
+}
+
+ion-list-header{
+    background-color: #F0EFEB;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 20px;
+}
+
+ion-list-body{
+    background-color: #F0EFEB !important;
 }
 
 ion-checkbox{

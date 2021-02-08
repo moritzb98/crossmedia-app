@@ -21,11 +21,16 @@
   <!--To-Do-Liste-->
 
   <ion-list>
+    <ion-list-header>
+      Deine Einkaufsliste
+    </ion-list-header>
+    <ion-list-body>
     <ion-item  *ngFor="let entry of form">
       <ion-label>{{entry.val}}</ion-label>
       <ion-checkbox mode="md" slot="end" [(ngModel)]="entry.isChecked">
       </ion-checkbox>
     </ion-item>
+  </ion-list-body>
 
 
 
