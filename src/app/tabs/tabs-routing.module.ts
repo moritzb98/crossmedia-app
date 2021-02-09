@@ -51,10 +51,6 @@ const routes: Routes = [
     redirectTo: '/tabs/tab2',
     pathMatch: 'full'
   },
-  {
-    path: 'supermaerkte',
-    component: SupermaerktePage
-  },
 ];
 
 @NgModule({

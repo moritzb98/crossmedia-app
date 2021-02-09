@@ -22,7 +22,7 @@
             <h3>{{ favorite.title }}</h3>
           </ion-label>
           <ion-icon class="heart" name="heart" (click)="delete(favorite.id)"></ion-icon>
-          <ion-icon class="cart" name="cart-outline"></ion-icon>
+          <ion-icon class="cart" name="cart-outline" (click)="addToCart()"></ion-icon>
       </ion-item>
     </ion-list>
   </div>
