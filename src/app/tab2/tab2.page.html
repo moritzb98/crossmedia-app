@@ -12,7 +12,7 @@
   </ion-header>
   <div>
   <ion-searchbar animated placeholder="z.B. Cola"></ion-searchbar>  
-  <ion-slides>
+  <ion-slides pager="true">
 
     <ion-slide>
       <div class="slide">
@@ -61,33 +61,47 @@
       <h3>Mehr Angebote anzeigen?</h3>
       <ion-button (click)="notThere()" fill="clear">Zur Produktübersicht <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
-
   </ion-slides>
 </div>
+<br>
+
 <div class="grid">
   <div class="item">
     <div class="headline">
       <h4>Getränke</h4>
     </div>
-    <img src="./assets/getraenke.png"/>
+    <div class="vertikal">
+      <img class="mittig" src="./assets/getraenke.png"/>
+    </div>
+    
   </div>
   <div class="item">
     <div class="headline">
       <h4>Süßigkeiten</h4>
     </div>
-    <img src="./assets/schokolade.png"/>
+    <div class="vertikal">
+          <img class="mittig" src="./assets/schokolade.png"/>
+    </div>
   </div>
   <div class="item">
     <div class="headline">
       <h4>Obst & Gemüse</h4>
     </div>
-    <img src="./assets/obst.png"/>
+    <div class="vertikal">
+          <img class="mittig" src="./assets/obst.png"/>
+    </div>
   </div>
   <div class="item">
     <div class="headline">
       <h4>Backwaren</h4>
     </div>
-    <img src="./assets/Backwaren.png"/>
+    <div class="vertikal">
+          <img class="mittig" src="./assets/Backwaren.png"/>
+    </div>
+
   </div>
 </div>
+
+<br><br><br><br><br>
+
 </ion-content>
