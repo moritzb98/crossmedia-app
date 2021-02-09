@@ -1,30 +1,77 @@
-<ion-header [translucent]="false">
-  <ion-toolbar>
-    <ion-title>
-      Angebote
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-nav [root]="rootPage"></ion-nav>
+
+<!-- Header Bereich-->
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Angebote</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <div class="settings">
+          <img src= "./assets/settings.svg" width="40px">
+        </div>
+        <ion-title size="large">Schnapp' Dir diese Beute: <br> {{deal.title}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-  <!-- So kannst du die Daten bekommen -->
-  <p>Titel: {{deal.title}}</p>
+    <!-- Zurück zur Übersicht-->
+    <div class="back">
+    <a href="/tabs/tab1" style="color:#707070;">Zurück zur Übersicht</a>
+    </div>
+
+    <!--H2 mit Infos zum Produkt-->
+
+    <div class="container">
+      <h1>Schaue Dir genauere Informationen zu dieser Beute an</h1>
+    </div>
+
+   <!-- Bild zum Angebot, ion-card--> 
+  
+  <ion-card>
+    <ion-card-header>
+      <div class="flex-container">
+        <div class="flex-image">
+          <img [src]="deal.img" height="auto">
+        </div> 
+      </div>
+    </ion-card-header>
+  </ion-card>
+
+  <!-- Kategorie des Produkts -->
+
+  <div class="kategorie">
+    <p>{{deal.category}}</p>
+  </div>
+
+<!--  Einkaufsmöglichkeit 
+
+  <div class="laden">
+  <p>{{deal.store}}</p>
+  </div>
+  -->
+
+  <!-- Titel des Produkts-->
+
+  <div class="titleangebot">
+  <p>{{deal.title}}</p>
+</div>
+
+<!-- Inhalt/Produktbeschreibung-->
+<div class="Produktbeschreibung">
   <p>Inhalt: {{deal.content}}</p>
-  <p>Laden: {{deal.store}}</p>
-  <p>Neuer Preis: {{deal.price_new}}</p>
-  <p>Alter Preis: {{deal.price_old}}</p>
-  <p>Kategorie: {{deal.category}}</p>
-  <img [src]="deal.img" height="auto">
+</div>
 
-  <!-- Falls du einen Zurück-Button brauchst (geht aber ja auch über die Navi) -->
-  <a href="/tabs/tab1">Zurück zur Übersicht</a>
+<ion-chip class="rechtsunten" color="primary">
+  <ion-label>{{ deal.price_new }}</ion-label>
+  <ion-badge color="medium">{{ deal.price_old }}</ion-badge>
+</ion-chip>
 
-  <!-- Hier kann darunter der Inhalt rein -->
+
+
+  <br>
+  <br>
   
 </ion-content>
+<br>
+<br>
+<br>
+<br>
+<br>
