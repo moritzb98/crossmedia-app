@@ -165,9 +165,9 @@ ion-badge{
 }
 
 .mittig{
+    max-height: 120px;
+    max-width: 150px;
     margin: auto;
-    height: auto;
-    width: auto;
 }
 
 
@@ -181,7 +181,7 @@ ion-badge{
 }
 
 .vertikal{
-    display: block;
+    display: flex;
+    align-items: center;
     height: 100%;
-    width: 100%;
 }
