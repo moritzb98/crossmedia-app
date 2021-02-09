@@ -19,10 +19,9 @@ export class EinstellungenComponent implements OnInit {
   async presentAlert(title, msg) {
     const alert = await this.alertController.create({
       cssClass: 'my-custom-class',
-      header: 'Alert',
-      subHeader: 'Subtitle',
-      message: 'This is an alert message.',
-      buttons: ['OK']
+      header: 'Bitte beachten',
+      message: 'Du wirst jetzt zu den Systemeinstellungen weitergeleitet.',
+      buttons: ['Verstanden']
     });
 
     await alert.present();

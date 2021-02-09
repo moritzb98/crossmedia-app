@@ -18,8 +18,7 @@
   <!-- Location Abfrage-->
 
   <div class="container">
-    <img src= "./assets/pin.png" width="40px">
-    <h1>Du befindest Dich in Heilbronn</h1>
+    <h1> Konfiguriere hier wichtige Einstellungen</h1>
   </div>
 
 
@@ -40,7 +39,7 @@
     </ion-card-header>
   </ion-card>
 
-  <ion-card>
+  <ion-card (click)="presentAlert()">
     <ion-card-header>
       <div class="flex-container">
       <img class="icon" src= "./assets/privat.png" height="30">
@@ -49,7 +48,7 @@
     </ion-card-header>
   </ion-card>
   
-  <ion-card>
+  <ion-card (click)="presentAlert()">
     <ion-card-header>
       <div class="flex-container">
       <img class="icon" src= "./assets/sicherheit.png" height="30">
@@ -58,7 +57,7 @@
     </ion-card-header>
   </ion-card>
 
-  <ion-card>
+  <ion-card (click)="presentAlert()">
     <ion-card-header>
       <div class="flex-container">
       <img class="icon" src= "./assets/profil.png" height="30">
@@ -67,16 +66,7 @@
     </ion-card-header>
   </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <div class="flex-container">
-      <img class="icon" src= "./assets/hilfe.png" height="30">
-     <div class="namecomponent"> Hilfe </div>
-    </div>
-    </ion-card-header>
-  </ion-card>
-
-  <ion-card>
+  <ion-card (click)="presentAlert()">
     <ion-card-header>
       <div class="flex-container">
       <img class="icon" src= "./assets/informationen.png" height="30">
