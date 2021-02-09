@@ -1,6 +1,6 @@
 .button{
-    margin-left:10px;
-    margin-right: 0px;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 15px;
     border-color: #D9D8CC;
     border-style: solid;
@@ -39,7 +39,7 @@ ion-title{
     margin-top: 15px;  
     margin-left: 10px;
     width: 200px;
-    object-fit: cover;
+    background-size: contain;
     
 }
 
