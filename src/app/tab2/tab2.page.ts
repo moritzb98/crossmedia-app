@@ -9,8 +9,4 @@ export class Tab2Page {
 
   constructor() {}
 
-  notThere(){
-    alert("Seite noch nicht implementiert.");
-  }
-
 }

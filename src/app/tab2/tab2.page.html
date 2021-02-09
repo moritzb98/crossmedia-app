@@ -59,7 +59,7 @@
     <ion-slide>
       <img src="./assets/percentage dark.svg"/>
       <h3>Mehr Angebote anzeigen?</h3>
-      <ion-button (click)="notThere()" fill="clear">Zur Produktübersicht <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+      <ion-button [routerLink]="['/tabs/tab1']" fill="clear">Zur Produktübersicht <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
     </ion-slide>
   </ion-slides>
 </div>
