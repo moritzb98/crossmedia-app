@@ -10,8 +10,8 @@ img{
 }
 
 div.kreis {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     border-radius: 50px;
     background-color: #D08C66;
     //border: 5px solid rgb(209, 19, 19); 
@@ -35,12 +35,13 @@ div.kreis {
   ion-tab-bar{
     background: none;
     --border: none;
+    height: 90px;
   }
 
   .background-green{
     display: block;
     width: 100%;
-    height: 35px;
+    height: 50px;
     position: absolute;
     background: #778b84;
     bottom: 0;

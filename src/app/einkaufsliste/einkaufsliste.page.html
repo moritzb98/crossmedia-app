@@ -1,29 +1,41 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Einkaufsliste
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-nav [root]="rootPage"></ion-nav>
+
+<!-- Header Bereich-->
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Einkaufsliste</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <div class="settings">
+          <img src= "./assets/settings.svg" width="40px">
+        </div>
+        <ion-title size="large">Behalte Deine Beute im Blick</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+  <!-- Location Abfrage-->
+
+  <div class="container">
+    <h1>Hier kannst Du Beute zu Deiner Einkaufsliste hinzufügen:</h1>
+  </div>
+
+  <!--To-Do-Liste-->
 
   <ion-list>
-
-    <ion-item *ngFor="let entry of form">
+    <ion-item  *ngFor="let entry of form">
       <ion-label>{{entry.val}}</ion-label>
-      <ion-checkbox slot="end" [(ngModel)]="entry.isChecked"></ion-checkbox>
+      <ion-checkbox mode="md" slot="end" [(ngModel)]="entry.isChecked">
+      </ion-checkbox>
     </ion-item>
+  
+
+
 
     <ion-item>
-      <input [(ngModel)]="itemAdd" > 
-      <a (click)="additem()">Hinzufügen</a>
+      <input animated placeholder="z.B. Erdbeeren" [(ngModel)]="itemAdd" > 
+      <a style="color: #707070" (click)="additem()"> Hinzufügen
+      </a>
     </ion-item>
+  
 </ion-list>
 
 </ion-content>

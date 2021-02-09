@@ -7,9 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EinkaufslistePage implements OnInit {
   public form = [
-    { val: 'Pepperoni', isChecked: true },
-    { val: 'Sausage', isChecked: false },
-    { val: 'Mushroom', isChecked: false }
+    { val: 'Äpfel', isChecked: true },
+    { val: 'Vollkornnudeln', isChecked: false },
   ];
   itemAdd;
   constructor() { }
@@ -19,7 +18,7 @@ export class EinkaufslistePage implements OnInit {
 
   additem() {
     this.form.push({val: this.itemAdd, isChecked: false});
-    this.itemAdd = "";
+    this.itemAdd = '';
   }
 
 }

@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
 import { EinstellungenComponent } from './einstellungen.component';
+import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 
 describe('EinstellungenComponent', () => {
   let component: EinstellungenComponent;
@@ -22,3 +23,4 @@ describe('EinstellungenComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

@@ -1,3 +1,8 @@
+
+<ion-nav [root]="rootPage"></ion-nav>
+
+
+
 <!-- Header Bereich-->
 
 <ion-content [fullscreen]="true">
@@ -13,74 +18,61 @@
   <!-- Location Abfrage-->
 
   <div class="container">
-    <img src= "./assets/pin.png" width="40px">
-    <h1>Du befindest Dich in Heilbronn</h1>
+    <h1> Konfiguriere hier wichtige Einstellungen</h1>
   </div>
 
-  <ion-list lines="full" class="ion-no-margin">
-    <ion-list-header lines="full">
-      <ion-label>
-        Ändere hier wichtige Einstellungen:
-      </ion-label>
-    </ion-list-header>
-    <ion-item>
-      <ion-label>Benutzername</ion-label>
-      <ion-input placeholder="Mind. 8 Zeichen lang"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="fixed">E-Mail Adresse</ion-label>
-      <ion-input placeholder="xyz@xyz.de"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="fixed">Dein Standort</ion-label>
-      <ion-input placeholder="PLZ oder Ort"></ion-input>
-    </ion-item>
-  </ion-list>
+
+<!--PopUp-->
 
 
-  <h3> Standortabfrage</h3>
+
+
+  <!--Cards-->
+
+  <ion-card (click)="presentAlert()">
+
+    <ion-card-header>
+      <div class="flex-container">  
+        <img class="icon" src= "./assets/hilfe.png" height="30">
+     <div class="namecomponent"> Hilfe </div>
+    </div>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-card (click)="presentAlert()">
+    <ion-card-header>
+      <div class="flex-container">
+      <img class="icon" src= "./assets/privat.png" height="30">
+     <div class="namecomponent"> Privatsphäre </div>
+    </div>
+    </ion-card-header>
+  </ion-card>
   
-  <ion-segment (ionChange)="segmentChanged($event)" color="secondary">
-    <ion-segment-button value="standard">
-      <ion-label>Immer</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="hybrid">
-    <h4>Beim Benutzen <br>der App</h4>
-    </ion-segment-button>
-    <ion-segment-button value="sat">
-      <ion-label>Nie</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+  <ion-card (click)="presentAlert()">
+    <ion-card-header>
+      <div class="flex-container">
+      <img class="icon" src= "./assets/sicherheit.png" height="30">
+     <div class="namecomponent"> Sicherheit </div>
+    </div>
+    </ion-card-header>
+  </ion-card>
 
-  <h3> Push-Benachrichtigungen</h3>
-  
-  <ion-segment (ionChange)="segmentChanged($event)">
-    <ion-segment-button value="friends">
-      <ion-label>Zulassen</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="enemies">
-      <ion-label>Verweigern</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+  <ion-card (click)="presentAlert()">
+    <ion-card-header>
+      <div class="flex-container">
+      <img class="icon" src= "./assets/profil.png" height="30">
+     <div class="namecomponent"> Konto </div>
+    </div>
+    </ion-card-header>
+  </ion-card>
 
-
-
-  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
-    <ion-fab-button>
-      <ion-icon name="share"></ion-icon>
-    </ion-fab-button>
-    <ion-fab-list side="top">
-      <ion-fab-button><ion-icon name="logo-vimeo"></ion-icon></ion-fab-button>
-    </ion-fab-list>
-    <ion-fab-list side="bottom">
-      <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
-    </ion-fab-list>
-    <ion-fab-list side="start">
-      <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
-    </ion-fab-list>
-    <ion-fab-list side="end">
-      <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
-    </ion-fab-list>
-  </ion-fab>
+  <ion-card (click)="presentAlert()">
+    <ion-card-header>
+      <div class="flex-container">
+      <img class="icon" src= "./assets/informationen.png" height="30">
+     <div class="namecomponent"> Informationen </div>
+    </div>
+    </ion-card-header>
+  </ion-card>
 
 </ion-content>

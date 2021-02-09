@@ -1,0 +1,43 @@
+.settings{
+    z-index: 1;
+    text-align: right;
+    margin-top: 20px;
+}    
+
+ion-title{
+    color: white;
+    font-size: 22px;    
+    font-family: 'Roboto', sans-serif;
+}
+
+ion-list-header{
+    background-color: #F0EFEB;
+    font-family: 'Helvetica', sans-serif;
+    font-size: 20px;
+}
+
+ion-list{
+    background-color:white !important;
+}
+
+ion-checkbox{
+    size: 0px;
+    color: #F0EFEB;
+    border-color: #D9D8CC;
+    border-width: 25px;
+    --checkmark-color: #FFFFFF;
+    --border-color-checked: #E4E4DB ;
+    --background-checked: #83B297;
+}
+
+
+h1{
+        color: #707070;
+        margin-top: 0px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: 'Helvetica';
+        
+        }  
+        
