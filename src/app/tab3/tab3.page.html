@@ -11,5 +11,20 @@
     </ion-toolbar>
   </ion-header>
 
+  <div class="container">
+    <ion-list class="favorites">
+      <ion-item *ngFor="let favorite of (favorites | async)" color="none" lines="none">
+          <ion-avatar slot="start">
+            <img [src]="favorite.img">
+          </ion-avatar>
+          <ion-label>
+            <p>{{ favorite.category }}</p>
+            <h3>{{ favorite.title }}</h3>
+          </ion-label>
+          <ion-icon class="heart" name="heart" (click)="delete(favorite.id)"></ion-icon>
+          <ion-icon class="cart" name="cart-outline"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
   
 </ion-content>

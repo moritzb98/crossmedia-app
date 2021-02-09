@@ -16,3 +16,39 @@ h1{
     text-align: right;
     margin-top: 20px;
 }
+
+.list-ios{
+    background: none;
+}
+
+
+ion-item{
+    background: #F0EFEB;
+    margin-bottom: 10px;
+}
+
+:host(.ion-color) .item-native, :host(.ion-color) .item-inner {
+    border: none !important;
+}
+
+ion-label p, ion-label h3{
+    color: #707070 !important;
+    text-transform: uppercase;
+}
+
+ion-label h3{
+    font-weight: bold;
+}
+
+ion-label p{
+    font-weight: 200;
+    font-size: 10px;
+}
+
+.cart{
+    color: grey;
+}
+
+.heart{
+    color: #d08c65;
+}

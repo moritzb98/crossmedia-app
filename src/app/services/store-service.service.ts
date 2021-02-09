@@ -1,4 +1,3 @@
-import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
