@@ -1,3 +1,4 @@
+import { SupermarktdetailComponent } from './../supermarktdetail/supermarktdetail.component';
 import { AngebotDetailComponent } from './../angebot-detail/angebot-detail.component';
 import { SupermaerktePage } from './../supermaerkte/supermaerkte.page';
 import { NgModule } from '@angular/core';
@@ -34,6 +35,10 @@ const routes: Routes = [
       {
         path: 'einstellungen',
         component: EinstellungenComponent
+      },
+      {
+        path: 'supermarktdetail',
+        component: SupermarktdetailComponent
       },
       {
         path: 'tab1/:id',
