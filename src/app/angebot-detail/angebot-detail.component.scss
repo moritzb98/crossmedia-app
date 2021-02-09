@@ -1,0 +1,79 @@
+ion-title{
+    color: white;
+    font-size: 25px;    
+    font-family: 'Futura T OT', sans-serif;
+}
+
+.titleangebot{
+    color: #707070;
+    margin-left: 20px;
+    font-size: 22px;    
+    font-family: 'Helvetica', sans-serif;
+    font-weight: bold;
+}
+
+.Produktbeschreibung{
+
+    color: #707070;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size: 12px;    
+    font-family: 'Helvetica', sans-serif;
+    font-weight: regular;
+}
+
+.rechtsunten{
+    align-items: flex-end!important;
+    position: relative;
+    overflow: unset;
+    float: right;
+}
+
+.mittig{
+    text-align: center!important;
+    height: 135px;
+    position: relative;
+}
+
+ion-chip{
+    position: absolute;
+    bottom:0;
+    right:0;
+    padding-top: 10px;
+    background-color: #dd885a;
+    color: white;
+    border: 0.5px solid #d67c4b;
+}
+
+ion-label{
+    position: relative;
+
+}
+
+h1{
+    color: #707070;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Helvetica';
+    
+    }  
+
+.flex-container{
+        display: flex;
+    }
+    
+    
+.flex-image{
+        
+        margin-right: 2px;
+        margin-left: 2px;
+    }
+
+ .kategorie{
+     margin-left: 20px;
+     font-size: 17px;
+     font-family: 'Helvetica', sans-serif;
+     color: #A9A9A9;
+ }   
