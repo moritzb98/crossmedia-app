@@ -12,6 +12,11 @@
       </ion-toolbar>
     </ion-header>
 
+    <!-- Zurück zur Übersicht-->
+    <div class="back">
+    <a href="/tabs/tab1" style="color:#707070;">Zurück zur Übersicht</a>
+    </div>
+
     <!--H2 mit Infos zum Produkt-->
 
     <div class="container">
@@ -33,13 +38,20 @@
   <!-- Kategorie des Produkts -->
 
   <div class="kategorie">
-    <p>Kategorie: {{deal.category}}</p>
+    <p>{{deal.category}}</p>
   </div>
+
+<!--  Einkaufsmöglichkeit 
+
+  <div class="laden">
+  <p>{{deal.store}}</p>
+  </div>
+  -->
 
   <!-- Titel des Produkts-->
 
   <div class="titleangebot">
-  <p>Titel: {{deal.title}}</p>
+  <p>{{deal.title}}</p>
 </div>
 
 <!-- Inhalt/Produktbeschreibung-->
@@ -52,11 +64,14 @@
   <ion-badge color="medium">{{ deal.price_old }}</ion-badge>
 </ion-chip>
 
- 
-  <p>Laden: {{deal.store}}</p>
-  
 
-  <!-- Falls du einen Zurück-Button brauchst (geht aber ja auch über die Navi) -->
-  <a href="/tabs/tab1">Zurück zur Übersicht</a>
+
+  <br>
+  <br>
   
 </ion-content>
+<br>
+<br>
+<br>
+<br>
+<br>

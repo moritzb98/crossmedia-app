@@ -12,6 +12,29 @@ ion-title{
     font-weight: bold;
 }
 
+.laden{
+    margin-left: 20px;
+    font-size: 17px;
+    font-family: 'Helvetica', sans-serif;
+    color: #A9A9A9;
+    margin-top: 20px;
+}
+
+.back{
+    margin-top: 7px;
+    margin-left: 20px;
+}
+
+ion-badge{
+    position: absolute;
+    top: -11px;
+    right: -3px;
+    z-index:500;
+    font-size: 10px;
+    font-weight: 300;
+    text-decoration: line-through;
+}
+
 .Produktbeschreibung{
 
     color: #707070;
