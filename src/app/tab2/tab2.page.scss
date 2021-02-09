@@ -64,6 +64,7 @@ ion-slides{
     background: #F0EFEB;
     border-radius: 20px;
     color: #707070;
+    overflow-y:inherit;
     
 }
 ion-slide{
@@ -94,6 +95,7 @@ ion-slide{
     background-color: #dd885a;
     color: white;
     border: 0.5px solid #d67c4b;
+    overflow: inherit;
 }
 
 ion-label{
@@ -101,6 +103,15 @@ ion-label{
 
 }
 
+ion-badge{
+    position: absolute;
+    top: -11px;
+    right: -3px;
+    z-index:500;
+    font-size: 10px;
+    font-weight: 300;
+    text-decoration: line-through;
+}
 .swiper-slide h3{
     color:#707070!important;
     margin: 10px auto 0px auto;
@@ -121,15 +132,7 @@ ion-label{
     margin-top: 1px!important;
 }
 
-ion-badge{
-    position: absolute;
-    top: -11px;
-    right: -3px;
-    z-index:500;
-    font-size: 10px;
-    font-weight: 300;
-    text-decoration: line-through;
-}
+
 
 .item{
     margin: 10px;
@@ -141,7 +144,7 @@ ion-badge{
     margin-top: 20px;
     display: grid; 
     grid-template-columns: 50% 50%; 
-    //grid-template-rows: 170px 170px; 
+    grid-template-rows: 170px 170px; 
 }
 
 .headline{
@@ -159,4 +162,26 @@ ion-badge{
     font-size: 18px;
     margin:2px auto;
     text-align: center;
+}
+
+.mittig{
+    margin: auto;
+    height: auto;
+    width: auto;
+}
+
+
+.slides-ios{
+    --bullet-background-active: #dd885a;
+    --bullet-background: #a7a7a7;
+}
+
+.swiper-pagination {
+    bottom: -20px!important;
+}
+
+.vertikal{
+    display: block;
+    height: 100%;
+    width: 100%;
 }
