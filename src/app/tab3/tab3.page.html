@@ -2,7 +2,7 @@
 
   <ion-header collapse="condense">
     <ion-toolbar>
-      <div class="settings">
+      <div class="settings" [routerLink]="['/tabs/einstellungen']">
         <img src= "./assets/settings.svg" width="40px">
       </div>
       <div class="text"> 
@@ -25,6 +25,12 @@
           <ion-icon class="cart" name="cart-outline" (click)="addToCart()"></ion-icon>
       </ion-item>
     </ion-list>
+    <br><br>
+    <p class="demo">Weitere Demo-Seiten (noch nicht eingebunden):</p>
+    <br>
+    <a class="demo" [routerLink]="['/tabs/einkaufsliste']">Zu der Einkaufsliste</a><br>
+    <a class="demo" [routerLink]="['/tabs/supermaerkte']">Zu der Supermarkt-Übersicht</a><br>
+    <a class="demo" [routerLink]="['/backend']">Zum Backend - Hinzufügen von Angeboten</a>
   </div>
-  
+  <br><br><br><br><br>
 </ion-content>

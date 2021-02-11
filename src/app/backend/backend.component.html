@@ -55,6 +55,10 @@
         Angebot Hinzufügen
       </ion-button>
     </ion-toolbar>
+    <ion-button expand="block" fill="solid" color="danger" [routerLink]="['/tabs/tab2']">
+      <ion-icon name="trash" slot="start"></ion-icon>
+      Zurück zur App
+    </ion-button>
     <ion-row no-padding text-center>
         <ion-col size="6">
           <ion-button expand="block" fill="outline" color="danger" (click)="deleteDeal()">
