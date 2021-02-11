@@ -48,18 +48,18 @@ export class FavoriteService {
   }
 
   addFavorite(favorite: Favorite): Promise<DocumentReference> {
-    this.afs.collection(`favorites`, ref => ref.where('title', "==", favorite.title)).snapshotChanges().subscribe(res => {
-      if (res.length > 0)
-      {
-        this.presentToast("Favorit schon in der Liste");
-        return null;
-      }
-      else
-      {
+    // this.afs.collection(`favorites`, ref => ref.where('title', "==", favorite.title)).snapshotChanges().subscribe(res => {
+    //   if (res.length > 0)
+    //   {
+    //     this.presentToast("Favorit schon in der Liste");
+    //     return null;
+    //   }
+    //   else
+    //   {
         return this.favoritesCollection.add(favorite);
-      }
-    });
-    return null;
+    //   }
+    // });
+    // return null;
   }
 
   deleteFavorite(id: string): Promise<void> {
